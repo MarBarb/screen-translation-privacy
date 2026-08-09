@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="实时翻译（Live Translation）支持">
+  <title>实时翻译 · 支持</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --accent: #1476ed;
+      --page: #f5f7fb;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #162033;
+      --secondary: #5f6b7d;
+      --border: rgba(22, 32, 51, 0.1);
+      --shadow: 0 22px 64px rgba(25, 72, 145, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #07111f;
+        --card: rgba(15, 29, 48, 0.9);
+        --text: #f2f6ff;
+        --secondary: #a8b4c6;
+        --border: rgba(255, 255, 255, 0.11);
+        --shadow: 0 24px 68px rgba(0, 0, 0, 0.34);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(20, 118, 237, 0.14), transparent 36rem),
+        var(--page);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.68;
+    }
+    main { width: min(792px, 100%); margin: 0 auto; padding: 48px 16px 64px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+    .mark { display: block; width: 36px; height: 36px; border-radius: 9px; box-shadow: 0 7px 18px rgba(20, 86, 190, 0.22); }
+    .language-switcher {
+      position: relative; display: flex; align-items: center; gap: 8px; min-width: 148px; height: 42px;
+      padding: 0 12px; border: 1px solid var(--border); border-radius: 14px;
+      background: color-mix(in srgb, var(--card) 88%, transparent); box-shadow: 0 8px 24px rgba(25, 72, 145, 0.08);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    .language-switcher select {
+      width: 100%; padding: 0 20px 0 0; border: 0; outline: 0; appearance: none; -webkit-appearance: none;
+      background: transparent; color: var(--text); font: 600 14px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .language-switcher svg { flex: 0 0 auto; color: var(--accent); }
+    .language-switcher .chevron { position: absolute; right: 11px; pointer-events: none; color: var(--secondary); }
+    article {
+      padding: clamp(26px, 5vw, 52px); border: 1px solid var(--border); border-radius: 28px;
+      background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(30px, 6vw, 46px); line-height: 1.15; letter-spacing: -0.035em; }
+    .intro { margin: 0 0 34px; color: var(--secondary); font-size: 17px; }
+    section + section { margin-top: 28px; }
+    h2 { margin: 0 0 7px; font-size: 19px; }
+    p { margin: 0; color: var(--secondary); }
+    .contact {
+      display: inline-flex; align-items: center; gap: 9px; margin-top: 28px; padding: 12px 16px;
+      border-radius: 14px; background: var(--accent); color: white; text-decoration: none; font-weight: 700;
+    }
+    footer { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 24px; color: var(--secondary); font-size: 13px; }
+    footer a { color: var(--accent); }
+    @media (max-width: 520px) {
+      main { padding: 24px 12px 48px; }
+      .brand span:last-child { display: none; }
+      article { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div class="brand">
+        <img class="mark" src="./app-icon.png" width="36" height="36" alt="">
+        <span id="app-name">实时翻译</span>
+      </div>
+      <label class="language-switcher">
+        <span id="language-label" hidden>语言</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M3.6 9h16.8M3.6 15h16.8M12 3c2.2 2.5 3.3 5.5 3.3 9S14.2 18.5 12 21M12 3C9.8 5.5 8.7 8.5 8.7 12s1.1 6.5 3.3 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <select id="language" aria-labelledby="language-label">
+          <option value="zh-Hans">简体中文</option>
+          <option value="zh-Hant">繁體中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+        </select>
+        <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </label>
+    </div>
+
+    <article>
+      <h1 id="title"></h1>
+      <p class="intro" id="intro"></p>
+      <div id="sections"></div>
+      <a class="contact" id="contact" href="mailto:lch0810@outlook.com"></a>
+    </article>
+
+    <footer>
+      <span>© 2026 Live Translation</span>
+      <a href="./" id="privacy"></a>
+      <a href="./terms.html" id="terms"></a>
+    </footer>
+  </main>
+
+  <script>
+    const content = {
+      "zh-Hans": {
+        appName: "实时翻译", title: "支持", intro: "遇到问题时，可以先查看下方说明，或直接通过邮件联系我们。",
+        privacy: "隐私政策", terms: "使用条款", contact: "发送支持邮件",
+        sections: [
+          ["快速开始", "选择听写语言和翻译语言，准备 Apple 管理的本地语言模型，然后开启画中画并启动系统广播。播放其他 App 的音频后，字幕会显示在画中画中。"],
+          ["模型下载", "语言模型由 iOS 管理。若下载状态长时间没有刷新，请确认网络连接，退出并重新打开实时翻译，再次检查所选语言。"],
+          ["广播与画中画", "系统广播必须由你在系统窗口中确认启动。若广播意外停止，请重新打开实时翻译，确认画中画仍在运行，再重新启动广播。"],
+          ["购买与恢复", "点击首页右上角的时间胶囊可查看会员方案或恢复购买。订阅的管理与取消由 Apple 账户的订阅设置处理。"],
+          ["联系我们", "发送邮件时请附上设备型号、iOS 版本、听写与翻译语言，以及可以复现问题的操作步骤。无需发送你的系统音频、听写内容或翻译内容。我们通常会在 7 个工作日内回复。"]
+        ]
+      },
+      "zh-Hant": {
+        appName: "即時翻譯", title: "支援", intro: "遇到問題時，可以先查看下方說明，或直接透過電子郵件聯絡我們。",
+        privacy: "隱私權政策", terms: "使用條款", contact: "傳送支援郵件",
+        sections: [
+          ["快速開始", "選擇聽寫語言與翻譯語言，準備由 Apple 管理的本機語言模型，然後開啟子母畫面並啟動系統廣播。播放其他 App 的音訊後，字幕會顯示在子母畫面中。"],
+          ["模型下載", "語言模型由 iOS 管理。若下載狀態長時間未更新，請確認網路連線，退出並重新開啟即時翻譯，再次檢查所選語言。"],
+          ["廣播與子母畫面", "系統廣播必須由你在系統視窗中確認啟動。若廣播意外停止，請重新開啟即時翻譯，確認子母畫面仍在執行，再重新啟動廣播。"],
+          ["購買與回復", "點一下首頁右上角的時間膠囊即可查看會員方案或回復購買。訂閱的管理與取消由 Apple 帳號的訂閱設定處理。"],
+          ["聯絡我們", "傳送電子郵件時，請附上裝置型號、iOS 版本、聽寫與翻譯語言，以及可重現問題的操作步驟。無需傳送系統音訊、聽寫內容或翻譯內容。我們通常會在 7 個工作日內回覆。"]
+        ]
+      },
+      en: {
+        appName: "Live Translation", title: "Support", intro: "Check the guidance below when something is not working, or contact us directly by email.",
+        privacy: "Privacy Policy", terms: "Terms of Use", contact: "Email Support",
+        sections: [
+          ["Quick Start", "Choose the dictation and translation languages, prepare the Apple-managed on-device language models, then start Picture in Picture and the system broadcast. Captions appear in Picture in Picture while audio plays in another app."],
+          ["Model Downloads", "Language models are managed by iOS. If download status does not refresh for an extended period, check your network connection, quit and reopen Live Translation, then check the selected languages again."],
+          ["Broadcast and Picture in Picture", "You must confirm the system broadcast in the system window. If broadcasting stops unexpectedly, reopen Live Translation, make sure Picture in Picture is still running, and start the broadcast again."],
+          ["Purchases and Restore", "Tap the time capsule in the top-right corner of the home screen to view membership plans or restore purchases. Manage or cancel subscriptions in your Apple Account subscription settings."],
+          ["Contact Us", "Include your device model, iOS version, dictation and translation languages, and steps that reproduce the issue. You do not need to send system audio, transcripts, or translations. We usually reply within seven business days."]
+        ]
+      },
+      ja: {
+        appName: "リアルタイム翻訳", title: "サポート", intro: "問題が発生した場合は以下をご確認いただくか、メールで直接お問い合わせください。",
+        privacy: "プライバシーポリシー", terms: "利用規約", contact: "サポートへメール",
+        sections: [
+          ["クイックスタート", "音声認識言語と翻訳言語を選び、Appleが管理するオンデバイス言語モデルを準備してから、ピクチャ・イン・ピクチャとシステムブロードキャストを開始します。ほかのアプリで音声を再生すると字幕が表示されます。"],
+          ["モデルのダウンロード", "言語モデルはiOSが管理します。状態が長時間更新されない場合は、ネットワークを確認し、アプリを終了して再度開いてから選択言語を確認してください。"],
+          ["ブロードキャストとPiP", "システム画面でブロードキャスト開始を確認する必要があります。予期せず停止した場合はアプリを開き直し、PiPが動作中であることを確認して再度開始してください。"],
+          ["購入と復元", "ホーム画面右上の時間カプセルからプランの確認と購入の復元ができます。サブスクリプションの管理や解約はApple Accountの設定で行います。"],
+          ["お問い合わせ", "端末モデル、iOSバージョン、音声認識・翻訳言語、再現手順をお知らせください。システム音声、文字起こし、翻訳内容を送る必要はありません。通常7営業日以内に返信します。"]
+        ]
+      },
+      ko: {
+        appName: "실시간 번역", title: "지원", intro: "문제가 발생하면 아래 안내를 확인하거나 이메일로 직접 문의하세요.",
+        privacy: "개인정보 처리방침", terms: "이용 약관", contact: "지원 이메일 보내기",
+        sections: [
+          ["빠른 시작", "받아쓰기 언어와 번역 언어를 선택하고 Apple이 관리하는 기기 내 언어 모델을 준비한 다음 화면 속 화면과 시스템 방송을 시작하세요. 다른 앱에서 오디오를 재생하면 자막이 표시됩니다."],
+          ["모델 다운로드", "언어 모델은 iOS에서 관리합니다. 다운로드 상태가 오래 갱신되지 않으면 네트워크를 확인하고 앱을 종료한 뒤 다시 열어 선택한 언어를 확인하세요."],
+          ["방송 및 화면 속 화면", "시스템 창에서 방송 시작을 직접 확인해야 합니다. 방송이 예기치 않게 중지되면 앱을 다시 열고 화면 속 화면이 실행 중인지 확인한 뒤 방송을 다시 시작하세요."],
+          ["구매 및 복원", "홈 화면 오른쪽 위 시간 캡슐을 탭하여 멤버십을 확인하거나 구매를 복원할 수 있습니다. 구독 관리와 취소는 Apple Account 구독 설정에서 처리합니다."],
+          ["문의", "기기 모델, iOS 버전, 받아쓰기·번역 언어와 문제 재현 단계를 알려 주세요. 시스템 오디오, 받아쓰기 또는 번역 내용을 보낼 필요는 없습니다. 일반적으로 영업일 기준 7일 이내에 답변합니다."]
+        ]
+      },
+      fr: {
+        appName: "Traduction en direct", title: "Assistance", intro: "Consultez les indications ci-dessous en cas de problème ou contactez-nous directement par e-mail.",
+        privacy: "Politique de confidentialité", terms: "Conditions d’utilisation", contact: "Contacter l’assistance",
+        sections: [
+          ["Démarrage rapide", "Choisissez les langues de dictée et de traduction, préparez les modèles locaux gérés par Apple, puis lancez l’image dans l’image et la diffusion système. Les sous-titres apparaissent pendant la lecture audio dans une autre app."],
+          ["Téléchargement des modèles", "Les modèles linguistiques sont gérés par iOS. Si l’état ne se met pas à jour pendant longtemps, vérifiez le réseau, quittez puis rouvrez l’app et contrôlez à nouveau les langues choisies."],
+          ["Diffusion et image dans l’image", "Vous devez confirmer le lancement de la diffusion dans la fenêtre système. En cas d’arrêt inattendu, rouvrez l’app, vérifiez que l’image dans l’image fonctionne, puis relancez la diffusion."],
+          ["Achats et restauration", "Touchez la capsule de temps en haut à droite pour consulter les offres ou restaurer les achats. Gérez ou annulez les abonnements dans les réglages de votre compte Apple."],
+          ["Nous contacter", "Indiquez le modèle de l’appareil, la version d’iOS, les langues de dictée et de traduction et les étapes de reproduction. N’envoyez pas l’audio système, les transcriptions ni les traductions. Nous répondons généralement sous sept jours ouvrés."]
+        ]
+      },
+      de: {
+        appName: "Live-Übersetzung", title: "Support", intro: "Prüfen Sie bei Problemen die Hinweise unten oder kontaktieren Sie uns direkt per E-Mail.",
+        privacy: "Datenschutzrichtlinie", terms: "Nutzungsbedingungen", contact: "Support kontaktieren",
+        sections: [
+          ["Schnellstart", "Wählen Sie Diktier- und Übersetzungssprache, bereiten Sie die von Apple verwalteten lokalen Sprachmodelle vor und starten Sie Bild-in-Bild sowie die Systemübertragung. Untertitel erscheinen, während eine andere App Audio wiedergibt."],
+          ["Modelldownloads", "Sprachmodelle werden von iOS verwaltet. Wenn der Status lange nicht aktualisiert wird, prüfen Sie das Netzwerk, beenden und öffnen Sie die App erneut und kontrollieren Sie die gewählten Sprachen."],
+          ["Übertragung und Bild-in-Bild", "Der Start der Systemübertragung muss im Systemfenster bestätigt werden. Stoppt sie unerwartet, öffnen Sie die App erneut, prüfen Sie Bild-in-Bild und starten Sie die Übertragung neu."],
+          ["Käufe und Wiederherstellung", "Tippen Sie oben rechts auf die Zeitkapsel, um Mitgliedschaften anzuzeigen oder Käufe wiederherzustellen. Abos verwalten oder kündigen Sie in den Apple-Account-Einstellungen."],
+          ["Kontakt", "Nennen Sie Gerätemodell, iOS-Version, Diktier- und Übersetzungssprache sowie Schritte zur Reproduktion. Systemaudio, Transkripte oder Übersetzungen müssen Sie nicht senden. Wir antworten normalerweise innerhalb von sieben Werktagen."]
+        ]
+      },
+      es: {
+        appName: "Traducción en vivo", title: "Soporte", intro: "Consulta las indicaciones siguientes si algo no funciona o contáctanos directamente por correo.",
+        privacy: "Política de privacidad", terms: "Términos de uso", contact: "Enviar correo a soporte",
+        sections: [
+          ["Inicio rápido", "Elige los idiomas de dictado y traducción, prepara los modelos locales gestionados por Apple y luego inicia imagen dentro de imagen y la retransmisión del sistema. Los subtítulos aparecen mientras otra app reproduce audio."],
+          ["Descarga de modelos", "iOS gestiona los modelos de idioma. Si el estado no se actualiza durante mucho tiempo, comprueba la red, cierra y abre la app y revisa de nuevo los idiomas elegidos."],
+          ["Retransmisión e imagen dentro de imagen", "Debes confirmar el inicio de la retransmisión en la ventana del sistema. Si se detiene inesperadamente, vuelve a abrir la app, comprueba que imagen dentro de imagen siga activa y reinicia la retransmisión."],
+          ["Compras y restauración", "Toca la cápsula de tiempo de la esquina superior derecha para ver las opciones o restaurar compras. Gestiona o cancela suscripciones en los ajustes de tu cuenta de Apple."],
+          ["Contacto", "Incluye el modelo del dispositivo, la versión de iOS, los idiomas de dictado y traducción y los pasos para reproducir el problema. No necesitas enviar audio del sistema, transcripciones ni traducciones. Normalmente respondemos en siete días laborables."]
+        ]
+      }
+    };
+
+    const supported = Object.keys(content);
+    const select = document.getElementById("language");
+    function preferredLanguage() {
+      for (const language of navigator.languages || [navigator.language]) {
+        const normalized = language.toLowerCase();
+        if (normalized.startsWith("zh-hant") || normalized.includes("tw") || normalized.includes("hk")) return "zh-Hant";
+        if (normalized.startsWith("zh")) return "zh-Hans";
+        const base = normalized.split("-")[0];
+        if (supported.includes(base)) return base;
+      }
+      return "en";
+    }
+    function render(language) {
+      const page = content[language] || content.en;
+      document.documentElement.lang = language;
+      document.title = `${page.appName} · ${page.title}`;
+      document.getElementById("app-name").textContent = page.appName;
+      document.getElementById("title").textContent = page.title;
+      document.getElementById("intro").textContent = page.intro;
+      document.getElementById("privacy").textContent = page.privacy;
+      document.getElementById("terms").textContent = page.terms;
+      document.getElementById("contact").textContent = page.contact;
+      document.getElementById("sections").replaceChildren(...page.sections.map(([title, body]) => {
+        const section = document.createElement("section");
+        const heading = document.createElement("h2");
+        const paragraph = document.createElement("p");
+        heading.textContent = title;
+        paragraph.textContent = body;
+        section.append(heading, paragraph);
+        return section;
+      }));
+      select.value = language;
+      localStorage.setItem("language", language);
+    }
+    select.addEventListener("change", event => render(event.target.value));
+    const saved = localStorage.getItem("language");
+    render(supported.includes(saved) ? saved : preferredLanguage());
+  </script>
+</body>
+</html>
