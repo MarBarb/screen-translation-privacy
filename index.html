@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="屏幕翻译（Screen Translation）隐私政策">
+  <title>屏幕翻译 · 隐私政策</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --accent: #1476ed;
+      --page: #f5f7fb;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #162033;
+      --secondary: #5f6b7d;
+      --border: rgba(22, 32, 51, 0.1);
+      --shadow: 0 22px 64px rgba(25, 72, 145, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #07111f;
+        --card: rgba(15, 29, 48, 0.9);
+        --text: #f2f6ff;
+        --secondary: #a8b4c6;
+        --border: rgba(255, 255, 255, 0.11);
+        --shadow: 0 24px 68px rgba(0, 0, 0, 0.34);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(20, 118, 237, 0.14), transparent 36rem),
+        var(--page);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.68;
+    }
+
+    main {
+      width: min(792px, 100%);
+      margin: 0 auto;
+      padding: 48px 16px 64px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(145deg, #238cff, #176be5);
+      box-shadow: 0 10px 24px rgba(20, 118, 237, 0.26);
+      font-size: 17px;
+      letter-spacing: -1px;
+    }
+
+    select {
+      width: min(170px, 44vw);
+      padding: 9px 30px 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+    }
+
+    article {
+      padding: clamp(26px, 5vw, 52px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    .updated {
+      margin: 0 0 30px;
+      color: var(--secondary);
+      font-size: 14px;
+    }
+
+    .intro {
+      margin: 0 0 34px;
+      font-size: 17px;
+    }
+
+    section + section { margin-top: 28px; }
+
+    h2 {
+      margin: 0 0 7px;
+      font-size: 19px;
+      letter-spacing: -0.01em;
+    }
+
+    p { margin: 0; }
+
+    section p { color: var(--secondary); }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 24px;
+      color: var(--secondary);
+      font-size: 13px;
+    }
+
+    footer a { color: var(--accent); }
+
+    @media (max-width: 520px) {
+      main { padding: 24px 12px 48px; }
+      .brand span:last-child { display: none; }
+      article { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">文/A</div>
+        <span id="app-name">屏幕翻译</span>
+      </div>
+      <label>
+        <span id="language-label" hidden>语言</span>
+        <select id="language" aria-labelledby="language-label">
+          <option value="zh-Hans">简体中文</option>
+          <option value="zh-Hant">繁體中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+        </select>
+      </label>
+    </div>
+
+    <article>
+      <h1 id="title"></h1>
+      <p class="updated" id="updated"></p>
+      <p class="intro" id="intro"></p>
+      <div id="sections"></div>
+    </article>
+
+    <footer>
+      <span>© 2026 Screen Translation</span>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" id="terms"></a>
+    </footer>
+  </main>
+
+  <script>
+    const policies = {
+      "zh-Hans": {
+        appName: "屏幕翻译", title: "隐私政策", updated: "更新日期：2026年8月9日",
+        intro: "屏幕翻译尽量在设备本地完成处理，并将数据处理范围控制在实现核心功能所需的最低限度。",
+        terms: "使用条款",
+        sections: [
+          ["音频与字幕", "系统音频、听写结果与翻译内容由 Apple 的 ReplayKit、语音识别与翻译框架在设备上处理。本应用不会将这些内容上传到开发者服务器。"],
+          ["购买", "购买与订阅由 Apple App Store 处理。本应用只读取经 StoreKit 验证的商品和权益状态，不会获取完整的付款信息。"],
+          ["本地数据", "语言、字幕显示偏好、免费使用时长及运行状态保存在设备本地或应用组容器中，用于恢复设置和协调主应用与广播扩展。"],
+          ["跟踪与共享", "本应用不集成第三方广告、跟踪或分析 SDK，也不会向第三方出售个人信息。"],
+          ["你的控制", "你可以随时停止系统广播、撤销语音识别权限，或删除应用以移除其本地数据。"]
+        ]
+      },
+      "zh-Hant": {
+        appName: "螢幕翻譯", title: "隱私權政策", updated: "更新日期：2026年8月9日",
+        intro: "螢幕翻譯盡可能在裝置本機完成處理，並將資料處理範圍控制在實現核心功能所需的最低限度。",
+        terms: "使用條款",
+        sections: [
+          ["音訊與字幕", "系統音訊、聽寫結果與翻譯內容由 Apple 的 ReplayKit、語音辨識與翻譯框架在裝置上處理。本 App 不會將這些內容上傳至開發者伺服器。"],
+          ["購買", "購買與訂閱由 Apple App Store 處理。本 App 僅讀取經 StoreKit 驗證的商品與權益狀態，不會取得完整的付款資訊。"],
+          ["本機資料", "語言、字幕顯示偏好、免費使用時間及執行狀態會儲存在裝置本機或 App Group 容器中，用於還原設定及協調主 App 與廣播擴充功能。"],
+          ["追蹤與分享", "本 App 不整合第三方廣告、追蹤或分析 SDK，也不會向第三方出售個人資訊。"],
+          ["你的控制", "你可以隨時停止系統廣播、撤銷語音辨識權限，或刪除 App 以移除其本機資料。"]
+        ]
+      },
+      en: {
+        appName: "Screen Translation", title: "Privacy Policy", updated: "Last updated: August 9, 2026",
+        intro: "Screen Translation processes as much as possible on your device and limits data handling to what is necessary for its core features.",
+        terms: "Terms of Use",
+        sections: [
+          ["Audio and Captions", "System audio, transcription results, and translations are processed on your device using Apple’s ReplayKit, Speech, and Translation frameworks. The app does not upload this content to the developer’s servers."],
+          ["Purchases", "Purchases and subscriptions are processed by Apple App Store. The app only reads StoreKit-verified product and entitlement status and does not receive your full payment information."],
+          ["Local Data", "Language choices, caption display preferences, free usage time, and runtime status are stored locally on your device or in the App Group container to restore settings and coordinate the app with its broadcast extension."],
+          ["Tracking and Sharing", "The app does not include third-party advertising, tracking, or analytics SDKs and does not sell personal information to third parties."],
+          ["Your Controls", "You can stop system broadcasting, revoke Speech Recognition permission, or delete the app to remove its local data at any time."]
+        ]
+      },
+      ja: {
+        appName: "画面翻訳", title: "プライバシーポリシー", updated: "更新日：2026年8月9日",
+        intro: "画面翻訳は可能な限りデバイス上で処理し、コア機能に必要な最小限の範囲にデータ処理を制限します。",
+        terms: "利用規約",
+        sections: [
+          ["音声と字幕", "システム音声、文字起こし結果、翻訳内容は、AppleのReplayKit、音声認識、翻訳フレームワークを使用してデバイス上で処理されます。本アプリがこれらの内容を開発者のサーバーへアップロードすることはありません。"],
+          ["購入", "購入とサブスクリプションはApple App Storeによって処理されます。本アプリはStoreKitで検証された商品と利用権の状態のみを読み取り、完全な支払い情報を取得しません。"],
+          ["ローカルデータ", "言語設定、字幕表示設定、無料利用時間、実行状態は、設定の復元および本体アプリとブロードキャスト拡張機能の連携のため、デバイスまたはApp Groupコンテナに保存されます。"],
+          ["トラッキングと共有", "本アプリには第三者の広告、トラッキング、分析SDKは組み込まれておらず、個人情報を第三者に販売しません。"],
+          ["ユーザーによる管理", "システムブロードキャストの停止、音声認識権限の取り消し、またはアプリの削除により、いつでもローカルデータを削除できます。"]
+        ]
+      },
+      ko: {
+        appName: "화면 번역", title: "개인정보 처리방침", updated: "업데이트: 2026년 8월 9일",
+        intro: "화면 번역은 가능한 한 기기에서 처리하며 핵심 기능에 필요한 최소 범위로 데이터 처리를 제한합니다.",
+        terms: "이용 약관",
+        sections: [
+          ["오디오 및 자막", "시스템 오디오, 받아쓰기 결과 및 번역 내용은 Apple의 ReplayKit, 음성 인식 및 번역 프레임워크를 사용해 기기에서 처리됩니다. 이 앱은 해당 내용을 개발자 서버에 업로드하지 않습니다."],
+          ["구매", "구매 및 구독은 Apple App Store에서 처리됩니다. 이 앱은 StoreKit으로 확인된 상품 및 사용 권한 상태만 읽으며 전체 결제 정보를 받지 않습니다."],
+          ["로컬 데이터", "언어, 자막 표시 환경설정, 무료 사용 시간 및 실행 상태는 설정을 복원하고 기본 앱과 방송 확장 프로그램을 연동하기 위해 기기 또는 App Group 컨테이너에 로컬로 저장됩니다."],
+          ["추적 및 공유", "이 앱은 제3자 광고, 추적 또는 분석 SDK를 포함하지 않으며 개인 정보를 제3자에게 판매하지 않습니다."],
+          ["사용자 제어", "언제든지 시스템 방송을 중지하거나 음성 인식 권한을 철회하거나 앱을 삭제하여 로컬 데이터를 제거할 수 있습니다."]
+        ]
+      },
+      fr: {
+        appName: "Screen Translation", title: "Politique de confidentialité", updated: "Mise à jour : 9 août 2026",
+        intro: "Screen Translation effectue autant que possible les traitements sur l’appareil et limite le traitement des données au strict nécessaire pour ses fonctions essentielles.",
+        terms: "Conditions d’utilisation",
+        sections: [
+          ["Audio et sous-titres", "L’audio système, les résultats de transcription et les traductions sont traités sur l’appareil à l’aide des frameworks ReplayKit, Speech et Translation d’Apple. L’app n’envoie pas ces contenus aux serveurs du développeur."],
+          ["Achats", "Les achats et abonnements sont traités par l’App Store d’Apple. L’app lit uniquement les produits et droits vérifiés par StoreKit et ne reçoit pas vos informations de paiement complètes."],
+          ["Données locales", "Les langues, préférences d’affichage des sous-titres, temps d’utilisation gratuit et état d’exécution sont stockés localement sur l’appareil ou dans le conteneur App Group afin de restaurer les réglages et coordonner l’app et son extension de diffusion."],
+          ["Suivi et partage", "L’app n’intègre aucun SDK tiers de publicité, de suivi ou d’analyse et ne vend pas de données personnelles à des tiers."],
+          ["Vos choix", "Vous pouvez à tout moment arrêter la diffusion système, retirer l’autorisation de reconnaissance vocale ou supprimer l’app pour effacer ses données locales."]
+        ]
+      },
+      de: {
+        appName: "Screen Translation", title: "Datenschutzrichtlinie", updated: "Aktualisiert: 9. August 2026",
+        intro: "Screen Translation verarbeitet Daten soweit wie möglich auf dem Gerät und beschränkt die Datenverarbeitung auf das für die Kernfunktionen erforderliche Minimum.",
+        terms: "Nutzungsbedingungen",
+        sections: [
+          ["Audio und Untertitel", "Systemaudio, Transkriptionsergebnisse und Übersetzungen werden mithilfe von Apples ReplayKit-, Spracherkennungs- und Übersetzungsframeworks auf dem Gerät verarbeitet. Die App lädt diese Inhalte nicht auf Server des Entwicklers hoch."],
+          ["Käufe", "Käufe und Abonnements werden vom Apple App Store verarbeitet. Die App liest nur von StoreKit verifizierte Produkte und Berechtigungsstatus und erhält keine vollständigen Zahlungsinformationen."],
+          ["Lokale Daten", "Sprachauswahl, Einstellungen zur Untertitelanzeige, kostenlose Nutzungszeit und Laufzeitstatus werden lokal auf dem Gerät oder im App-Group-Container gespeichert, um Einstellungen wiederherzustellen und die App mit ihrer Broadcast-Erweiterung zu koordinieren."],
+          ["Tracking und Weitergabe", "Die App enthält keine Drittanbieter-SDKs für Werbung, Tracking oder Analyse und verkauft keine personenbezogenen Daten an Dritte."],
+          ["Ihre Kontrolle", "Sie können jederzeit die Systemübertragung stoppen, die Berechtigung zur Spracherkennung widerrufen oder die App löschen, um lokale Daten zu entfernen."]
+        ]
+      },
+      es: {
+        appName: "Screen Translation", title: "Política de privacidad", updated: "Actualizado: 9 de agosto de 2026",
+        intro: "Screen Translation realiza el procesamiento en el dispositivo siempre que es posible y limita el tratamiento de datos al mínimo necesario para sus funciones principales.",
+        terms: "Términos de uso",
+        sections: [
+          ["Audio y subtítulos", "El audio del sistema, los resultados de transcripción y las traducciones se procesan en el dispositivo mediante ReplayKit y los frameworks de reconocimiento de voz y traducción de Apple. La app no sube este contenido a los servidores del desarrollador."],
+          ["Compras", "Las compras y suscripciones se procesan mediante Apple App Store. La app solo lee productos y derechos verificados por StoreKit y no recibe la información de pago completa."],
+          ["Datos locales", "Los idiomas, las preferencias de subtítulos, el tiempo de uso gratuito y el estado de ejecución se guardan localmente en el dispositivo o en el contenedor del App Group para restaurar ajustes y coordinar la app con su extensión de retransmisión."],
+          ["Seguimiento y uso compartido", "La app no integra SDK de terceros para publicidad, seguimiento o análisis y no vende información personal a terceros."],
+          ["Tus controles", "Puedes detener la retransmisión del sistema, revocar el permiso de reconocimiento de voz o eliminar la app para borrar sus datos locales en cualquier momento."]
+        ]
+      }
+    };
+
+    const supported = Object.keys(policies);
+    const select = document.getElementById("language");
+
+    function preferredLanguage() {
+      for (const language of navigator.languages || [navigator.language]) {
+        const normalized = language.toLowerCase();
+        if (normalized.startsWith("zh-hant") || normalized.includes("tw") || normalized.includes("hk")) return "zh-Hant";
+        if (normalized.startsWith("zh")) return "zh-Hans";
+        const base = normalized.split("-")[0];
+        if (supported.includes(base)) return base;
+      }
+      return "en";
+    }
+
+    function render(language) {
+      const policy = policies[language] || policies.en;
+      document.documentElement.lang = language;
+      document.title = `${policy.appName} · ${policy.title}`;
+      document.getElementById("app-name").textContent = policy.appName;
+      document.getElementById("title").textContent = policy.title;
+      document.getElementById("updated").textContent = policy.updated;
+      document.getElementById("intro").textContent = policy.intro;
+      document.getElementById("terms").textContent = policy.terms;
+      document.getElementById("sections").replaceChildren(...policy.sections.map(([title, body]) => {
+        const section = document.createElement("section");
+        const heading = document.createElement("h2");
+        const paragraph = document.createElement("p");
+        heading.textContent = title;
+        paragraph.textContent = body;
+        section.append(heading, paragraph);
+        return section;
+      }));
+      select.value = language;
+    }
+
+    select.addEventListener("change", event => render(event.target.value));
+    render(preferredLanguage());
+  </script>
+</body>
+</html>
