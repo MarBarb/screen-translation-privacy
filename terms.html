@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="实时翻译（Live Translation）使用条款">
-  <title>实时翻译 · 使用条款</title>
+  <meta name="description" content="Live Translation Terms of Use">
+  <title>Live Translation · Terms of Use</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -193,18 +193,18 @@
     <div class="topbar">
       <div class="brand">
         <img class="mark" src="./app-icon.png" width="36" height="36" alt="">
-        <span id="app-name">实时翻译</span>
+        <span id="app-name">Live Translation</span>
       </div>
       <label class="language-switcher">
-        <span id="language-label" hidden>语言</span>
+        <span id="language-label" hidden>Language</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
           <path d="M3.6 9h16.8M3.6 15h16.8M12 3c2.2 2.5 3.3 5.5 3.3 9S14.2 18.5 12 21M12 3C9.8 5.5 8.7 8.5 8.7 12s1.1 6.5 3.3 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
         <select id="language" aria-labelledby="language-label">
+          <option value="en">English</option>
           <option value="zh-Hans">简体中文</option>
           <option value="zh-Hant">繁體中文</option>
-          <option value="en">English</option>
           <option value="ja">日本語</option>
           <option value="ko">한국어</option>
           <option value="fr">Français</option>
@@ -368,17 +368,6 @@
     const supported = Object.keys(terms);
     const select = document.getElementById("language");
 
-    function preferredLanguage() {
-      for (const language of navigator.languages || [navigator.language]) {
-        const normalized = language.toLowerCase();
-        if (normalized.startsWith("zh-hant") || normalized.includes("tw") || normalized.includes("hk")) return "zh-Hant";
-        if (normalized.startsWith("zh")) return "zh-Hans";
-        const base = normalized.split("-")[0];
-        if (supported.includes(base)) return base;
-      }
-      return "en";
-    }
-
     function render(language) {
       const documentTerms = terms[language] || terms.en;
       document.documentElement.lang = language;
@@ -401,8 +390,12 @@
       select.value = language;
     }
 
-    select.addEventListener("change", event => render(event.target.value));
-    render(preferredLanguage());
+    select.addEventListener("change", event => {
+      localStorage.setItem("site-language", event.target.value);
+      render(event.target.value);
+    });
+    const saved = localStorage.getItem("site-language");
+    render(supported.includes(saved) ? saved : "en");
   </script>
 </body>
 </html>
