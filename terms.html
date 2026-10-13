@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Live Translation Terms of Use">
-  <title>Live Translation · Terms of Use</title>
+  <meta name="description" content="Live Translate · Terms of Use">
+  <title>Live Translate · Terms of Use</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -186,6 +186,16 @@
       .brand span:last-child { display: none; }
       article { border-radius: 22px; }
     }
+
+    section p { white-space: pre-line; overflow-wrap: anywhere; }
+    h1, h2 { overflow-wrap: anywhere; hyphens: auto; }
+    :is([lang="ar"], [lang="hi"], [lang="th"]) :is(h1, h2) { letter-spacing: normal; line-height: 1.4; }
+    .brand { min-width: 0; }
+    .language-switcher { flex-shrink: 0; }
+    .language-switcher select { padding-inline: 0 20px; }
+    .language-switcher .chevron { right: auto; inset-inline-end: 12px; }
+    [dir="rtl"] .language-switcher select { padding-inline: 0 20px; }
+    @media (max-width: 360px) { .topbar { gap: 8px; } .language-switcher { min-width: 0; width: 190px; } }
   </style>
 </head>
 <body>
@@ -202,14 +212,26 @@
           <path d="M3.6 9h16.8M3.6 15h16.8M12 3c2.2 2.5 3.3 5.5 3.3 9S14.2 18.5 12 21M12 3C9.8 5.5 8.7 8.5 8.7 12s1.1 6.5 3.3 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
         <select id="language" aria-labelledby="language-label">
-          <option value="en">English</option>
-          <option value="zh-Hans">简体中文</option>
-          <option value="zh-Hant">繁體中文</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="es">Español</option>
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="zh-Hans" lang="zh-Hans" dir="ltr">简体中文</option>
+          <option value="zh-Hant" lang="zh-Hant" dir="ltr">繁體中文</option>
+          <option value="ja" lang="ja" dir="ltr">日本語</option>
+          <option value="ko" lang="ko" dir="ltr">한국어</option>
+          <option value="fr" lang="fr" dir="ltr">Français</option>
+          <option value="de" lang="de" dir="ltr">Deutsch</option>
+          <option value="es" lang="es" dir="ltr">Español</option>
+          <option value="it" lang="it" dir="ltr">Italiano</option>
+          <option value="pt" lang="pt" dir="ltr">Português (Brasil)</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+          <option value="vi" lang="vi" dir="ltr">Tiếng Việt</option>
+          <option value="ru" lang="ru" dir="ltr">Русский</option>
+          <option value="th" lang="th" dir="ltr">ไทย</option>
+          <option value="tr" lang="tr" dir="ltr">Türkçe</option>
+          <option value="id" lang="id" dir="ltr">Bahasa Indonesia</option>
+          <option value="uk" lang="uk" dir="ltr">Українська</option>
+          <option value="pl" lang="pl" dir="ltr">Polski</option>
+          <option value="hi" lang="hi" dir="ltr">हिन्दी</option>
+          <option value="nl" lang="nl" dir="ltr">Nederlands</option>
         </select>
         <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
           <path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -235,167 +257,975 @@
 
   <script>
     const terms = {
-      "zh-Hans": {
-        appName: "小蓝翻译", title: "使用条款", updated: "更新日期：2026年8月10日",
-        intro: "下载、访问或使用小蓝翻译，即表示你同意本使用条款。本条款与适用的 Apple App Store 条款及 Apple 标准最终用户许可协议共同适用。",
-        privacy: "隐私政策", support: "支持",
-        sections: [
-          ["服务说明", "小蓝翻译通过 ReplayKit 捕获由你主动发起的系统广播音频，并使用 Apple 提供的语音识别、翻译与画中画能力生成实时字幕。功能可用性取决于设备、系统版本、语言、已安装模型及 Apple 系统服务。"],
-          ["许可与合规使用", "我们授予你一项有限、个人、不可转让且可撤销的许可，以在你拥有或控制的 Apple 设备上使用本应用。你应确保自己有权处理相关音频和内容，不得将应用用于违法录音、侵犯版权或隐私、规避技术保护措施，或违反第三方服务规则的行为。"],
-          ["识别与翻译准确性", "语音识别和机器翻译可能出现遗漏、延迟或错误。请勿将结果作为医疗、法律、财务、安全或其他专业决策的唯一依据；重要内容应由你自行核对。"],
-          ["免费时长、订阅与购买", "应用可能提供界面所示的有限免费时长。月度和年度方案属于自动续订订阅，永久买断属于一次性购买。实际价格、币种和计费周期以购买时 App Store 显示为准。确认购买后，费用将从你的 Apple 账户扣除。除非在当前订阅期结束至少 24 小时前取消，订阅会自动续订；Apple 可在订阅期结束前 24 小时内收取续订费用。你可在 Apple 账户的“订阅”设置中管理或取消订阅，并可在应用内恢复购买。退款由 Apple 按其政策处理。"],
-          ["服务可用性与变更", "我们会努力保持应用可用，但不保证服务始终不中断、无错误或兼容所有内容。Apple 框架、系统权限、本地模型或操作系统的变化可能影响功能。我们可以为维护、安全、合规或产品改进而更新、调整或停止部分功能。"],
-          ["知识产权与终止", "应用、界面、图标及相关内容受适用知识产权法律保护。本条款不转让任何所有权。若你严重违反本条款，我们可以在法律允许的范围内终止你使用应用的许可；已完成购买仍受 Apple 的购买及退款规则约束。"],
-          ["责任限制与消费者权利", "在适用法律允许的最大范围内，应用按现状提供，我们不对识别或翻译结果造成的间接、附带或后果性损失承担责任。本条款不排除或限制依法不能排除的消费者权利或责任。"],
-          ["Apple 条款", "通过 App Store 获取和购买本应用还受 Apple Media Services 条款及 Apple 标准最终用户许可协议约束。Apple 负责 App Store 的付款、订阅管理及退款流程。"],
-          ["条款变更与联系", "我们可能不时更新本条款，并在本页面标明更新日期。继续使用更新后的应用即表示接受修订后的条款。如有疑问，请发送邮件至 lch0810@outlook.com。"]
-        ]
-      },
-      "zh-Hant": {
-        appName: "小藍翻譯", title: "使用條款", updated: "更新日期：2026年8月10日",
-        intro: "下載、存取或使用小藍翻譯，即表示你同意本使用條款。本條款與適用的 Apple App Store 條款及 Apple 標準終端使用者授權合約共同適用。",
-        privacy: "隱私權政策", support: "支援",
-        sections: [
-          ["服務說明", "小藍翻譯透過 ReplayKit 擷取由你主動啟動的系統廣播音訊，並使用 Apple 提供的語音辨識、翻譯與子母畫面功能產生即時字幕。功能可用性取決於裝置、系統版本、語言、已安裝模型及 Apple 系統服務。"],
-          ["授權與合規使用", "我們授予你有限、個人、不可轉讓且可撤銷的授權，以在你擁有或控制的 Apple 裝置上使用本 App。你應確保有權處理相關音訊與內容，不得用於違法錄音、侵犯著作權或隱私、規避技術保護措施，或違反第三方服務規則。"],
-          ["辨識與翻譯準確性", "語音辨識與機器翻譯可能出現遺漏、延遲或錯誤。請勿將結果作為醫療、法律、財務、安全或其他專業決策的唯一依據；重要內容應自行核對。"],
-          ["免費時間、訂閱與購買", "App 可能提供介面所示的有限免費時間。月付與年付方案為自動續訂，永久買斷為一次性購買。實際價格、幣別與計費週期以購買時 App Store 顯示為準。確認購買後將向你的 Apple 帳戶收費。除非在當期結束至少 24 小時前取消，訂閱會自動續訂；Apple 可在結束前 24 小時內收取續訂費用。你可在 Apple 帳戶的「訂閱」設定中管理或取消，並可在 App 內回復購買。退款由 Apple 依其政策處理。"],
-          ["服務可用性與變更", "我們會努力維持 App 可用，但不保證服務永不中斷、完全無誤或相容所有內容。Apple 框架、系統權限、本機模型或作業系統的變化可能影響功能。我們可因維護、安全、合規或產品改善而更新、調整或停止部分功能。"],
-          ["智慧財產權與終止", "App、介面、圖示及相關內容受智慧財產權法律保護。本條款不移轉任何所有權。若你嚴重違反本條款，我們可在法律允許範圍內終止使用授權；已完成購買仍受 Apple 的購買及退款規則約束。"],
-          ["責任限制與消費者權利", "在法律允許的最大範圍內，App 按現狀提供，我們不對辨識或翻譯結果造成的間接、附帶或衍生損失負責。本條款不排除依法不得排除的消費者權利或責任。"],
-          ["Apple 條款", "透過 App Store 取得與購買本 App，亦受 Apple Media Services 條款及 Apple 標準終端使用者授權合約約束。Apple 負責 App Store 的付款、訂閱管理及退款流程。"],
-          ["條款變更與聯絡", "我們可能不時更新本條款，並在本頁標示更新日期。繼續使用更新後的 App 即表示接受修訂內容。如有疑問，請寄送電子郵件至 lch0810@outlook.com。"]
-        ]
-      },
-      en: {
-        appName: "Live Translation", title: "Terms of Use", updated: "Last updated: August 10, 2026",
-        intro: "By downloading, accessing, or using Live Translation, you agree to these Terms of Use. These Terms apply together with the applicable Apple App Store terms and Apple’s Standard End User License Agreement.",
-        privacy: "Privacy Policy", support: "Support",
-        sections: [
-          ["The Service", "Live Translation uses ReplayKit to capture audio from a system broadcast that you initiate, then uses Apple-provided speech recognition, translation, and Picture in Picture capabilities to create live captions. Availability depends on your device, operating system, languages, installed models, and Apple system services."],
-          ["License and Responsible Use", "We grant you a limited, personal, non-transferable, revocable license to use the app on Apple devices you own or control. You must have the right to process the relevant audio and content. Do not use the app for unlawful recording, copyright or privacy infringement, circumvention of technical protections, or conduct that violates third-party service rules."],
-          ["Recognition and Translation Accuracy", "Speech recognition and machine translation may be incomplete, delayed, or incorrect. Do not rely on results as the sole basis for medical, legal, financial, safety, or other professional decisions. Verify important information independently."],
-          ["Free Allowance, Subscriptions, and Purchases", "The app may provide the limited free allowance shown in its interface. Monthly and yearly plans are auto-renewable subscriptions; lifetime access is a one-time purchase. The price, currency, and billing period shown by the App Store at purchase control. Your Apple Account is charged at confirmation. A subscription renews automatically unless canceled at least 24 hours before the current period ends, and Apple may charge the renewal within 24 hours before that end. Manage or cancel in your Apple Account subscription settings and restore eligible purchases in the app. Apple handles refunds under its policies."],
-          ["Availability and Changes", "We aim to keep the app available but do not promise uninterrupted, error-free operation or compatibility with every type of content. Changes to Apple frameworks, permissions, local models, or operating systems may affect features. We may update, change, or discontinue features for maintenance, security, compliance, or product improvement."],
-          ["Intellectual Property and Termination", "The app, interface, icon, and related materials are protected by applicable intellectual property laws. These Terms transfer no ownership. If you materially violate these Terms, we may terminate your license where permitted by law; completed purchases remain subject to Apple’s purchase and refund rules."],
-          ["Liability and Consumer Rights", "To the fullest extent permitted by law, the app is provided as is, and we are not liable for indirect, incidental, or consequential loss resulting from recognition or translation output. These Terms do not exclude or limit consumer rights or liabilities that cannot lawfully be excluded."],
-          ["Apple Terms", "Obtaining and purchasing the app through the App Store is also subject to the Apple Media Services Terms and Apple’s Standard End User License Agreement. Apple administers App Store payments, subscription management, and refunds."],
-          ["Changes and Contact", "We may update these Terms and will show the revision date on this page. Continued use of an updated app means you accept the revised Terms. Questions may be sent to lch0810@outlook.com."]
-        ]
-      },
-      ja: {
-        appName: "リアルタイム翻訳", title: "利用規約", updated: "更新日：2026年8月10日",
-        intro: "リアルタイム翻訳をダウンロード、アクセス、または使用することにより、本利用規約に同意したものとみなされます。本規約は、適用されるApple App Storeの規約およびApple標準エンドユーザ使用許諾契約と併せて適用されます。",
-        privacy: "プライバシーポリシー", support: "サポート",
-        sections: [
-          ["サービス", "リアルタイム翻訳は、ユーザーが開始したシステムブロードキャストの音声をReplayKitで取り込み、Apple提供の音声認識、翻訳、ピクチャ・イン・ピクチャ機能を使用してリアルタイム字幕を生成します。利用可否は、デバイス、OS、言語、インストール済みモデル、およびAppleのシステムサービスに依存します。"],
-          ["ライセンスと適切な利用", "当方は、ユーザーが所有または管理するAppleデバイスで本アプリを使用するための、限定的、個人的、譲渡不能かつ取消可能なライセンスを付与します。関連する音声や内容を処理する権利を確保し、違法な録音、著作権・プライバシーの侵害、技術的保護の回避、第三者サービス規則への違反に使用しないでください。"],
-          ["認識・翻訳の精度", "音声認識や機械翻訳には、欠落、遅延、誤りが生じる場合があります。医療、法律、財務、安全その他の専門的判断の唯一の根拠にせず、重要な情報は必ず確認してください。"],
-          ["無料枠、サブスクリプション、購入", "本アプリは画面に表示される限定無料枠を提供する場合があります。月額・年額プランは自動更新サブスクリプションで、永久アクセスは1回限りの購入です。価格、通貨、請求期間は購入時のApp Store表示が優先されます。確認時にApple Accountへ請求されます。現在の期間終了の24時間前までに解約しない限り自動更新され、Appleは終了前24時間以内に更新料を請求する場合があります。Apple Accountのサブスクリプション設定で管理・解約でき、アプリ内で対象購入を復元できます。返金はAppleの方針に従います。"],
-          ["可用性と変更", "安定した提供に努めますが、中断やエラーがないこと、すべての内容との互換性は保証しません。Appleのフレームワーク、権限、ローカルモデル、OSの変更が機能に影響する場合があります。保守、セキュリティ、法令遵守、改善のため機能を変更または終了することがあります。"],
-          ["知的財産と終了", "本アプリ、画面、アイコン、関連資料は知的財産法で保護されています。本規約は所有権を移転しません。重大な違反がある場合、法令で認められる範囲でライセンスを終了できます。購入済み項目にはAppleの購入・返金規則が引き続き適用されます。"],
-          ["責任と消費者の権利", "法令で許される最大限の範囲で、本アプリは現状有姿で提供され、認識・翻訳結果から生じる間接的、付随的、結果的損失について責任を負いません。法令上排除できない消費者の権利または責任は制限されません。"],
-          ["Appleの規約", "App Storeを通じた取得・購入には、Apple Media Services規約およびApple標準エンドユーザ使用許諾契約も適用されます。支払い、サブスクリプション管理、返金はAppleが取り扱います。"],
-          ["変更とお問い合わせ", "本規約を更新する場合、本ページに改定日を表示します。更新後も利用を続けることで改定規約に同意したものとみなされます。お問い合わせは lch0810@outlook.com までお願いします。"]
-        ]
-      },
-      ko: {
-        appName: "실시간 번역", title: "이용 약관", updated: "업데이트: 2026년 8월 10일",
-        intro: "실시간 번역을 다운로드하거나 이용하면 본 이용 약관에 동의하는 것입니다. 본 약관은 해당 Apple App Store 약관 및 Apple 표준 최종 사용자 사용권 계약과 함께 적용됩니다.",
-        privacy: "개인정보 처리방침", support: "지원",
-        sections: [
-          ["서비스", "실시간 번역은 사용자가 시작한 시스템 방송 오디오를 ReplayKit으로 캡처하고 Apple의 음성 인식, 번역 및 화면 속 화면 기능을 이용해 실시간 자막을 만듭니다. 사용 가능 여부는 기기, 운영체제, 언어, 설치된 모델 및 Apple 시스템 서비스에 따라 달라집니다."],
-          ["라이선스 및 책임 있는 사용", "사용자가 소유하거나 관리하는 Apple 기기에서 앱을 사용할 수 있는 제한적이고 개인적이며 양도 불가하고 철회 가능한 라이선스를 부여합니다. 관련 오디오와 콘텐츠를 처리할 권한이 있어야 하며 불법 녹음, 저작권·개인정보 침해, 기술적 보호 우회 또는 제3자 서비스 규칙 위반에 앱을 사용해서는 안 됩니다."],
-          ["인식 및 번역 정확도", "음성 인식과 기계 번역에는 누락, 지연 또는 오류가 있을 수 있습니다. 의료, 법률, 재무, 안전 또는 기타 전문적 판단의 유일한 근거로 사용하지 말고 중요한 정보는 별도로 확인하세요."],
-          ["무료 제공량, 구독 및 구매", "앱은 화면에 표시된 제한적 무료 제공량을 제공할 수 있습니다. 월간 및 연간 요금제는 자동 갱신 구독이며 평생 이용권은 일회성 구매입니다. 가격, 통화 및 청구 기간은 구매 시 App Store 표시가 우선합니다. 구매 확인 시 Apple Account로 청구됩니다. 현재 기간 종료 최소 24시간 전에 취소하지 않으면 자동 갱신되며 Apple은 종료 전 24시간 이내에 갱신 비용을 청구할 수 있습니다. Apple Account 구독 설정에서 관리 또는 취소하고 앱에서 대상 구매를 복원할 수 있습니다. 환불은 Apple 정책에 따릅니다."],
-          ["가용성 및 변경", "안정적인 제공을 위해 노력하지만 중단이나 오류가 없거나 모든 콘텐츠와 호환됨을 보장하지 않습니다. Apple 프레임워크, 권한, 로컬 모델 또는 운영체제 변경이 기능에 영향을 줄 수 있습니다. 유지보수, 보안, 규정 준수 또는 개선을 위해 기능을 변경하거나 중단할 수 있습니다."],
-          ["지식재산권 및 종료", "앱, 인터페이스, 아이콘 및 관련 자료는 지식재산권법의 보호를 받습니다. 본 약관은 소유권을 이전하지 않습니다. 중대한 위반 시 법이 허용하는 범위에서 라이선스를 종료할 수 있으며 완료된 구매에는 Apple의 구매 및 환불 규칙이 계속 적용됩니다."],
-          ["책임 및 소비자 권리", "법이 허용하는 최대 범위에서 앱은 있는 그대로 제공되며 인식 또는 번역 결과로 인한 간접적, 부수적 또는 결과적 손해에 대해 책임지지 않습니다. 법적으로 배제할 수 없는 소비자 권리나 책임은 제한되지 않습니다."],
-          ["Apple 약관", "App Store를 통한 앱의 취득 및 구매에는 Apple Media Services 약관과 Apple 표준 최종 사용자 사용권 계약도 적용됩니다. 결제, 구독 관리 및 환불은 Apple이 처리합니다."],
-          ["변경 및 문의", "본 약관을 업데이트하는 경우 이 페이지에 개정일을 표시합니다. 업데이트 후 계속 사용하면 개정 약관에 동의하는 것입니다. 문의는 lch0810@outlook.com 으로 보내 주세요."]
-        ]
-      },
-      fr: {
-        appName: "Traduction en direct", title: "Conditions d’utilisation", updated: "Mise à jour : 10 août 2026",
-        intro: "En téléchargeant, en accédant à ou en utilisant Traduction en direct, vous acceptez les présentes Conditions. Elles s’appliquent avec les conditions App Store pertinentes et le contrat de licence utilisateur final standard d’Apple.",
-        privacy: "Politique de confidentialité", support: "Assistance",
-        sections: [
-          ["Le service", "Traduction en direct utilise ReplayKit pour capturer l’audio d’une diffusion système que vous lancez, puis les fonctions Apple de reconnaissance vocale, de traduction et d’image dans l’image pour créer des sous-titres en direct. La disponibilité dépend de l’appareil, du système, des langues, des modèles installés et des services Apple."],
-          ["Licence et utilisation responsable", "Nous vous accordons une licence limitée, personnelle, non transférable et révocable pour utiliser l’app sur les appareils Apple que vous possédez ou contrôlez. Vous devez avoir le droit de traiter l’audio et le contenu concernés. Toute utilisation pour un enregistrement illégal, une atteinte au droit d’auteur ou à la vie privée, un contournement technique ou une violation des règles de services tiers est interdite."],
-          ["Exactitude", "La reconnaissance vocale et la traduction automatique peuvent être incomplètes, retardées ou erronées. Ne les utilisez pas comme seule base d’une décision médicale, juridique, financière, de sécurité ou professionnelle et vérifiez toute information importante."],
-          ["Utilisation gratuite, abonnements et achats", "L’app peut proposer le quota gratuit limité affiché dans son interface. Les formules mensuelle et annuelle sont renouvelables automatiquement ; l’accès à vie est un achat unique. Le prix, la devise et la période affichés par l’App Store lors de l’achat prévalent. Votre compte Apple est débité à la confirmation. L’abonnement est renouvelé sauf annulation au moins 24 heures avant la fin de la période, et Apple peut facturer le renouvellement dans les 24 heures précédant cette fin. Gérez ou annulez dans les réglages d’abonnement de votre compte Apple et restaurez les achats admissibles dans l’app. Apple traite les remboursements selon ses règles."],
-          ["Disponibilité et modifications", "Nous cherchons à maintenir l’app disponible sans garantir un fonctionnement continu, sans erreur ni compatible avec tout contenu. Les changements des frameworks Apple, autorisations, modèles locaux ou systèmes peuvent affecter les fonctions. Nous pouvons modifier ou arrêter des fonctions pour maintenance, sécurité, conformité ou amélioration."],
-          ["Propriété intellectuelle et résiliation", "L’app, son interface, son icône et ses éléments sont protégés par les lois sur la propriété intellectuelle. Aucun droit de propriété n’est transféré. En cas de violation substantielle, nous pouvons résilier la licence dans la mesure permise par la loi ; les achats restent soumis aux règles d’Apple."],
-          ["Responsabilité et droits des consommateurs", "Dans la mesure permise par la loi, l’app est fournie en l’état et nous ne répondons pas des pertes indirectes, accessoires ou consécutives aux résultats de reconnaissance ou de traduction. Les droits légaux des consommateurs qui ne peuvent être exclus restent inchangés."],
-          ["Conditions Apple", "L’obtention et l’achat via l’App Store sont aussi soumis aux Conditions Apple Media Services et au contrat de licence utilisateur final standard d’Apple. Apple gère les paiements, abonnements et remboursements App Store."],
-          ["Modifications et contact", "Nous pouvons actualiser ces Conditions et afficherons la date de révision ici. La poursuite de l’utilisation vaut acceptation des Conditions révisées. Contact : lch0810@outlook.com."]
-        ]
-      },
-      de: {
-        appName: "Live-Übersetzung", title: "Nutzungsbedingungen", updated: "Aktualisiert: 10. August 2026",
-        intro: "Durch Herunterladen, Aufrufen oder Verwenden von Live-Übersetzung stimmen Sie diesen Nutzungsbedingungen zu. Sie gelten zusammen mit den einschlägigen App-Store-Bedingungen und Apples Standard-Endbenutzer-Lizenzvertrag.",
-        privacy: "Datenschutzrichtlinie", support: "Support",
-        sections: [
-          ["Der Dienst", "Live-Übersetzung erfasst mit ReplayKit den Ton einer von Ihnen gestarteten Systemübertragung und erstellt mithilfe von Apples Spracherkennungs-, Übersetzungs- und Bild-in-Bild-Funktionen Live-Untertitel. Die Verfügbarkeit hängt von Gerät, Betriebssystem, Sprachen, installierten Modellen und Apple-Systemdiensten ab."],
-          ["Lizenz und verantwortliche Nutzung", "Sie erhalten eine beschränkte, persönliche, nicht übertragbare und widerrufliche Lizenz zur Nutzung auf Apple-Geräten, die Ihnen gehören oder von Ihnen kontrolliert werden. Sie müssen zur Verarbeitung der Audiodaten und Inhalte berechtigt sein. Unzulässig sind rechtswidrige Aufnahmen, Verletzungen von Urheberrecht oder Privatsphäre, die Umgehung technischer Schutzmaßnahmen und Verstöße gegen Regeln von Drittanbietern."],
-          ["Genauigkeit", "Spracherkennung und maschinelle Übersetzung können unvollständig, verzögert oder falsch sein. Ergebnisse dürfen nicht die alleinige Grundlage medizinischer, rechtlicher, finanzieller, sicherheitsbezogener oder sonstiger fachlicher Entscheidungen sein. Prüfen Sie wichtige Informationen selbst."],
-          ["Kostenlose Nutzung, Abos und Käufe", "Die App kann das in der Oberfläche angezeigte begrenzte kostenlose Kontingent anbieten. Monats- und Jahrespläne verlängern sich automatisch; lebenslanger Zugriff ist ein einmaliger Kauf. Maßgeblich sind Preis, Währung und Abrechnungszeitraum im App Store beim Kauf. Bei Bestätigung wird Ihr Apple Account belastet. Das Abo verlängert sich, sofern es nicht mindestens 24 Stunden vor Periodenende gekündigt wird; Apple kann die Verlängerung innerhalb der letzten 24 Stunden berechnen. Verwalten oder kündigen Sie im Apple-Account und stellen Sie berechtigte Käufe in der App wieder her. Erstattungen bearbeitet Apple nach seinen Regeln."],
-          ["Verfügbarkeit und Änderungen", "Wir bemühen uns um Verfügbarkeit, garantieren jedoch keinen unterbrechungs- oder fehlerfreien Betrieb und keine Kompatibilität mit allen Inhalten. Änderungen an Apple-Frameworks, Berechtigungen, lokalen Modellen oder Betriebssystemen können Funktionen beeinflussen. Funktionen können für Wartung, Sicherheit, Compliance oder Verbesserung geändert oder eingestellt werden."],
-          ["Geistiges Eigentum und Beendigung", "App, Oberfläche, Symbol und Materialien sind durch Immaterialgüterrechte geschützt. Eigentum wird nicht übertragen. Bei wesentlichem Verstoß können wir die Lizenz im gesetzlich zulässigen Umfang beenden; Käufe unterliegen weiterhin den Apple-Regeln."],
-          ["Haftung und Verbraucherrechte", "Soweit gesetzlich zulässig, wird die App wie besehen bereitgestellt; für indirekte, zufällige oder Folgeschäden aus Erkennungs- oder Übersetzungsergebnissen haften wir nicht. Unabdingbare Verbraucherrechte oder Haftung werden nicht ausgeschlossen."],
-          ["Apple-Bedingungen", "Bezug und Kauf über den App Store unterliegen auch den Apple Media Services-Bedingungen und Apples Standard-Endbenutzer-Lizenzvertrag. Apple verwaltet Zahlungen, Abonnements und Erstattungen."],
-          ["Änderungen und Kontakt", "Wir können diese Bedingungen aktualisieren und zeigen das Änderungsdatum auf dieser Seite. Die weitere Nutzung gilt als Zustimmung. Fragen senden Sie an lch0810@outlook.com."]
-        ]
-      },
-      es: {
-        appName: "Traducción en vivo", title: "Términos de uso", updated: "Actualizado: 10 de agosto de 2026",
-        intro: "Al descargar, acceder o usar Traducción en vivo, aceptas estos Términos. Se aplican junto con los términos correspondientes de Apple App Store y el contrato de licencia estándar para usuarios finales de Apple.",
-        privacy: "Política de privacidad", support: "Soporte",
-        sections: [
-          ["El servicio", "Traducción en vivo usa ReplayKit para capturar el audio de una retransmisión del sistema que tú inicias y las funciones de Apple de reconocimiento de voz, traducción e imagen dentro de imagen para crear subtítulos en directo. La disponibilidad depende del dispositivo, sistema, idiomas, modelos instalados y servicios de Apple."],
-          ["Licencia y uso responsable", "Te concedemos una licencia limitada, personal, intransferible y revocable para usar la app en dispositivos Apple que poseas o controles. Debes tener derecho a procesar el audio y contenido. No la uses para grabaciones ilícitas, infringir derechos de autor o privacidad, eludir protecciones técnicas ni vulnerar reglas de servicios de terceros."],
-          ["Exactitud", "El reconocimiento de voz y la traducción automática pueden ser incompletos, tardíos o incorrectos. No uses los resultados como única base para decisiones médicas, legales, financieras, de seguridad u otras decisiones profesionales. Verifica la información importante."],
-          ["Uso gratuito, suscripciones y compras", "La app puede ofrecer el límite gratuito mostrado en su interfaz. Los planes mensual y anual son suscripciones autorrenovables; el acceso de por vida es una compra única. Prevalecen el precio, moneda y periodo mostrados por App Store al comprar. Se cobra a tu cuenta de Apple al confirmar. La suscripción se renueva salvo cancelación al menos 24 horas antes del final del periodo, y Apple puede cobrar la renovación dentro de las 24 horas anteriores. Administra o cancela en los ajustes de suscripciones de tu cuenta Apple y restaura compras válidas en la app. Apple tramita reembolsos según sus políticas."],
-          ["Disponibilidad y cambios", "Intentamos mantener la app disponible, pero no garantizamos un funcionamiento ininterrumpido, sin errores o compatible con todo contenido. Los cambios en frameworks, permisos, modelos locales o sistemas de Apple pueden afectar funciones. Podemos modificar o retirar funciones por mantenimiento, seguridad, cumplimiento o mejora."],
-          ["Propiedad intelectual y terminación", "La app, interfaz, icono y materiales están protegidos por las leyes de propiedad intelectual. No se transfiere propiedad. Ante un incumplimiento sustancial podemos terminar la licencia cuando la ley lo permita; las compras siguen sujetas a las reglas de Apple."],
-          ["Responsabilidad y derechos del consumidor", "Hasta donde permita la ley, la app se ofrece tal cual y no respondemos por pérdidas indirectas, incidentales o consecuentes derivadas de los resultados de reconocimiento o traducción. No se excluyen derechos del consumidor ni responsabilidades que legalmente no puedan excluirse."],
-          ["Términos de Apple", "La obtención y compra mediante App Store también está sujeta a los Términos de Apple Media Services y al contrato de licencia estándar para usuarios finales de Apple. Apple gestiona pagos, suscripciones y reembolsos."],
-          ["Cambios y contacto", "Podemos actualizar estos Términos y mostraremos aquí la fecha de revisión. Seguir usando la app actualizada implica aceptar los Términos revisados. Contacto: lch0810@outlook.com."]
-        ]
-      }
-    };
+  "en": {
+    "appName": "Live Translate",
+    "title": "Terms of Use",
+    "updated": "Last updated: October 13, 2026",
+    "intro": "By downloading, accessing, or using Live Translate, you agree to these Terms of Use. These Terms apply together with the applicable Apple App Store terms and Apple’s Standard End User License Agreement.",
+    "privacy": "Privacy Policy",
+    "support": "Support",
+    "sections": [
+      [
+        "The Service",
+        "Live Translate uses ReplayKit to capture audio from a system broadcast that you initiate, then uses Apple-provided speech recognition, translation, and Picture in Picture capabilities to create live captions. Availability depends on your device, operating system, languages, installed models, and Apple system services."
+      ],
+      [
+        "License and Responsible Use",
+        "We grant you a limited, personal, non-transferable, revocable license to use the app on Apple devices you own or control. You must have the right to process the relevant audio and content. Do not use the app for unlawful recording, copyright or privacy infringement, circumvention of technical protections, or conduct that violates third-party service rules."
+      ],
+      [
+        "Recognition and Translation Accuracy",
+        "Speech recognition and machine translation may be incomplete, delayed, or incorrect. Do not rely on results as the sole basis for medical, legal, financial, safety, or other professional decisions. Verify important information independently."
+      ],
+      [
+        "Free Allowance, Subscriptions, and Purchases",
+        "The app may provide the limited free allowance shown in its interface. Subscriptions renew automatically; lifetime access is a one-time purchase. The price, currency, and billing period shown by the App Store at purchase control. Your Apple Account is charged at confirmation. A subscription renews automatically unless canceled at least 24 hours before the current period ends, and Apple may charge the renewal within 24 hours before that end. Manage or cancel in your Apple Account subscription settings and restore eligible purchases in the app. Apple handles refunds under its policies."
+      ],
+      [
+        "Availability and Changes",
+        "We aim to keep the app available but do not promise uninterrupted, error-free operation or compatibility with every type of content. Changes to Apple frameworks, permissions, local models, or operating systems may affect features. We may update, change, or discontinue features for maintenance, security, compliance, or product improvement."
+      ],
+      [
+        "Intellectual Property and Termination",
+        "The app, interface, icon, and related materials are protected by applicable intellectual property laws. These Terms transfer no ownership. If you materially violate these Terms, we may terminate your license where permitted by law; completed purchases remain subject to Apple’s purchase and refund rules."
+      ],
+      [
+        "Liability and Consumer Rights",
+        "To the fullest extent permitted by law, the app is provided as is, and we are not liable for indirect, incidental, or consequential loss resulting from recognition or translation output. These Terms do not exclude or limit consumer rights or liabilities that cannot lawfully be excluded."
+      ],
+      [
+        "Apple Terms",
+        "Obtaining and purchasing the app through the App Store is also subject to the Apple Media Services Terms and Apple’s Standard End User License Agreement. Apple administers App Store payments, subscription management, and refunds."
+      ],
+      [
+        "Changes and Contact",
+        "We may update these Terms and will show the revision date on this page. Continued use of an updated app means you accept the revised Terms. Questions may be sent to lch0810@outlook.com."
+      ]
+    ]
+  },
+  "zh-Hans": {
+    "appName": "小蓝翻译",
+    "title": "使用条款",
+    "updated": "更新日期： 2026年10月13日",
+    "intro": "下载、访问或使用小蓝翻译，即表示你同意本使用条款。本条款与适用的 Apple App Store 条款及 Apple 标准最终用户许可协议共同适用。",
+    "privacy": "隐私政策",
+    "support": "支持",
+    "sections": [
+      [
+        "服务说明",
+        "小蓝翻译通过 ReplayKit 捕获由你主动发起的系统广播音频，并使用 Apple 提供的语音识别、翻译与画中画能力生成实时字幕。功能可用性取决于设备、系统版本、语言、已安装模型及 Apple 系统服务。"
+      ],
+      [
+        "许可与合规使用",
+        "我们授予你一项有限、个人、不可转让且可撤销的许可，以在你拥有或控制的 Apple 设备上使用本应用。你应确保自己有权处理相关音频和内容，不得将应用用于违法录音、侵犯版权或隐私、规避技术保护措施，或违反第三方服务规则的行为。"
+      ],
+      [
+        "识别与翻译准确性",
+        "语音识别和机器翻译可能出现遗漏、延迟或错误。请勿将结果作为医疗、法律、财务、安全或其他专业决策的唯一依据；重要内容应由你自行核对。"
+      ],
+      [
+        "免费时长、订阅与购买",
+        "应用可能提供界面所示的有限免费时长。订阅方案会自动续订，永久买断属于一次性购买。实际价格、币种和计费周期以购买时 App Store 显示为准。确认购买后，费用将从你的 Apple 账户扣除。除非在当前订阅期结束至少 24 小时前取消，订阅会自动续订；Apple 可在订阅期结束前 24 小时内收取续订费用。你可在 Apple 账户的“订阅”设置中管理或取消订阅，并可在应用内恢复购买。退款由 Apple 按其政策处理。"
+      ],
+      [
+        "服务可用性与变更",
+        "我们会努力保持应用可用，但不保证服务始终不中断、无错误或兼容所有内容。Apple 框架、系统权限、本地模型或操作系统的变化可能影响功能。我们可以为维护、安全、合规或产品改进而更新、调整或停止部分功能。"
+      ],
+      [
+        "知识产权与终止",
+        "应用、界面、图标及相关内容受适用知识产权法律保护。本条款不转让任何所有权。若你严重违反本条款，我们可以在法律允许的范围内终止你使用应用的许可；已完成购买仍受 Apple 的购买及退款规则约束。"
+      ],
+      [
+        "责任限制与消费者权利",
+        "在适用法律允许的最大范围内，应用按现状提供，我们不对识别或翻译结果造成的间接、附带或后果性损失承担责任。本条款不排除或限制依法不能排除的消费者权利或责任。"
+      ],
+      [
+        "Apple 条款",
+        "通过 App Store 获取和购买本应用还受 Apple Media Services 条款及 Apple 标准最终用户许可协议约束。Apple 负责 App Store 的付款、订阅管理及退款流程。"
+      ],
+      [
+        "条款变更与联系",
+        "我们可能不时更新本条款，并在本页面标明更新日期。继续使用更新后的应用即表示接受修订后的条款。如有疑问，请发送邮件至 lch0810@outlook.com。"
+      ]
+    ]
+  },
+  "zh-Hant": {
+    "appName": "小藍翻譯",
+    "title": "使用條款",
+    "updated": "更新日期： 2026年10月13日",
+    "intro": "下載、存取或使用小藍翻譯，即表示你同意本使用條款。本條款與適用的 Apple App Store 條款及 Apple 標準終端使用者授權合約共同適用。",
+    "privacy": "隱私權政策",
+    "support": "支援",
+    "sections": [
+      [
+        "服務說明",
+        "小藍翻譯透過 ReplayKit 擷取由你主動啟動的系統廣播音訊，並使用 Apple 提供的語音辨識、翻譯與子母畫面功能產生即時字幕。功能可用性取決於裝置、系統版本、語言、已安裝模型及 Apple 系統服務。"
+      ],
+      [
+        "授權與合規使用",
+        "我們授予你有限、個人、不可轉讓且可撤銷的授權，以在你擁有或控制的 Apple 裝置上使用本 App。你應確保有權處理相關音訊與內容，不得用於違法錄音、侵犯著作權或隱私、規避技術保護措施，或違反第三方服務規則。"
+      ],
+      [
+        "辨識與翻譯準確性",
+        "語音辨識與機器翻譯可能出現遺漏、延遲或錯誤。請勿將結果作為醫療、法律、財務、安全或其他專業決策的唯一依據；重要內容應自行核對。"
+      ],
+      [
+        "免費時間、訂閱與購買",
+        "App 可能提供介面所示的有限免費時間。訂閱方案會自動續訂，永久買斷為一次性購買。實際價格、幣別與計費週期以購買時 App Store 顯示為準。確認購買後將向你的 Apple 帳戶收費。除非在當期結束至少 24 小時前取消，訂閱會自動續訂；Apple 可在結束前 24 小時內收取續訂費用。你可在 Apple 帳戶的「訂閱」設定中管理或取消，並可在 App 內回復購買。退款由 Apple 依其政策處理。"
+      ],
+      [
+        "服務可用性與變更",
+        "我們會努力維持 App 可用，但不保證服務永不中斷、完全無誤或相容所有內容。Apple 框架、系統權限、本機模型或作業系統的變化可能影響功能。我們可因維護、安全、合規或產品改善而更新、調整或停止部分功能。"
+      ],
+      [
+        "智慧財產權與終止",
+        "App、介面、圖示及相關內容受智慧財產權法律保護。本條款不移轉任何所有權。若你嚴重違反本條款，我們可在法律允許範圍內終止使用授權；已完成購買仍受 Apple 的購買及退款規則約束。"
+      ],
+      [
+        "責任限制與消費者權利",
+        "在法律允許的最大範圍內，App 按現狀提供，我們不對辨識或翻譯結果造成的間接、附帶或衍生損失負責。本條款不排除依法不得排除的消費者權利或責任。"
+      ],
+      [
+        "Apple 條款",
+        "透過 App Store 取得與購買本 App，亦受 Apple Media Services 條款及 Apple 標準終端使用者授權合約約束。Apple 負責 App Store 的付款、訂閱管理及退款流程。"
+      ],
+      [
+        "條款變更與聯絡",
+        "我們可能不時更新本條款，並在本頁標示更新日期。繼續使用更新後的 App 即表示接受修訂內容。如有疑問，請寄送電子郵件至 lch0810@outlook.com。"
+      ]
+    ]
+  },
+  "ja": {
+    "appName": "リアルタイム翻訳",
+    "title": "利用規約",
+    "updated": "更新日： 2026年10月13日",
+    "intro": "リアルタイム翻訳をダウンロード、アクセス、または使用することにより、本利用規約に同意したものとみなされます。本規約は、適用されるApple App Storeの規約およびApple標準エンドユーザ使用許諾契約と併せて適用されます。",
+    "privacy": "プライバシーポリシー",
+    "support": "サポート",
+    "sections": [
+      [
+        "サービス",
+        "リアルタイム翻訳は、ユーザーが開始したシステムブロードキャストの音声をReplayKitで取り込み、Apple提供の音声認識、翻訳、ピクチャ・イン・ピクチャ機能を使用してリアルタイム字幕を生成します。利用可否は、デバイス、OS、言語、インストール済みモデル、およびAppleのシステムサービスに依存します。"
+      ],
+      [
+        "ライセンスと適切な利用",
+        "当方は、ユーザーが所有または管理するAppleデバイスで本アプリを使用するための、限定的、個人的、譲渡不能かつ取消可能なライセンスを付与します。関連する音声や内容を処理する権利を確保し、違法な録音、著作権・プライバシーの侵害、技術的保護の回避、第三者サービス規則への違反に使用しないでください。"
+      ],
+      [
+        "認識・翻訳の精度",
+        "音声認識や機械翻訳には、欠落、遅延、誤りが生じる場合があります。医療、法律、財務、安全その他の専門的判断の唯一の根拠にせず、重要な情報は必ず確認してください。"
+      ],
+      [
+        "無料枠、サブスクリプション、購入",
+        "本アプリは画面に表示される限定無料枠を提供する場合があります。サブスクリプションは自動更新され、永久アクセスは1回限りの購入です。価格、通貨、請求期間は購入時のApp Store表示が優先されます。確認時にApple Accountへ請求されます。現在の期間終了の24時間前までに解約しない限り自動更新され、Appleは終了前24時間以内に更新料を請求する場合があります。Apple Accountのサブスクリプション設定で管理・解約でき、アプリ内で対象購入を復元できます。返金はAppleの方針に従います。"
+      ],
+      [
+        "可用性と変更",
+        "安定した提供に努めますが、中断やエラーがないこと、すべての内容との互換性は保証しません。Appleのフレームワーク、権限、ローカルモデル、OSの変更が機能に影響する場合があります。保守、セキュリティ、法令遵守、改善のため機能を変更または終了することがあります。"
+      ],
+      [
+        "知的財産と終了",
+        "本アプリ、画面、アイコン、関連資料は知的財産法で保護されています。本規約は所有権を移転しません。重大な違反がある場合、法令で認められる範囲でライセンスを終了できます。購入済み項目にはAppleの購入・返金規則が引き続き適用されます。"
+      ],
+      [
+        "責任と消費者の権利",
+        "法令で許される最大限の範囲で、本アプリは現状有姿で提供され、認識・翻訳結果から生じる間接的、付随的、結果的損失について責任を負いません。法令上排除できない消費者の権利または責任は制限されません。"
+      ],
+      [
+        "Appleの規約",
+        "App Storeを通じた取得・購入には、Apple Media Services規約およびApple標準エンドユーザ使用許諾契約も適用されます。支払い、サブスクリプション管理、返金はAppleが取り扱います。"
+      ],
+      [
+        "変更とお問い合わせ",
+        "本規約を更新する場合、本ページに改定日を表示します。更新後も利用を続けることで改定規約に同意したものとみなされます。お問い合わせは lch0810@outlook.com までお願いします。"
+      ]
+    ]
+  },
+  "ko": {
+    "appName": "실시간 번역",
+    "title": "이용 약관",
+    "updated": "업데이트: 2026년 10월 13일",
+    "intro": "실시간 번역을 다운로드하거나 이용하면 본 이용 약관에 동의하는 것입니다. 본 약관은 해당 Apple App Store 약관 및 Apple 표준 최종 사용자 사용권 계약과 함께 적용됩니다.",
+    "privacy": "개인정보 처리방침",
+    "support": "지원",
+    "sections": [
+      [
+        "서비스",
+        "실시간 번역은 사용자가 시작한 시스템 방송 오디오를 ReplayKit으로 캡처하고 Apple의 음성 인식, 번역 및 화면 속 화면 기능을 이용해 실시간 자막을 만듭니다. 사용 가능 여부는 기기, 운영체제, 언어, 설치된 모델 및 Apple 시스템 서비스에 따라 달라집니다."
+      ],
+      [
+        "라이선스 및 책임 있는 사용",
+        "사용자가 소유하거나 관리하는 Apple 기기에서 앱을 사용할 수 있는 제한적이고 개인적이며 양도 불가하고 철회 가능한 라이선스를 부여합니다. 관련 오디오와 콘텐츠를 처리할 권한이 있어야 하며 불법 녹음, 저작권·개인정보 침해, 기술적 보호 우회 또는 제3자 서비스 규칙 위반에 앱을 사용해서는 안 됩니다."
+      ],
+      [
+        "인식 및 번역 정확도",
+        "음성 인식과 기계 번역에는 누락, 지연 또는 오류가 있을 수 있습니다. 의료, 법률, 재무, 안전 또는 기타 전문적 판단의 유일한 근거로 사용하지 말고 중요한 정보는 별도로 확인하세요."
+      ],
+      [
+        "무료 제공량, 구독 및 구매",
+        "앱은 화면에 표시된 제한적 무료 제공량을 제공할 수 있습니다. 구독은 자동으로 갱신되며 평생 이용권은 일회성 구매입니다. 가격, 통화 및 청구 기간은 구매 시 App Store 표시가 우선합니다. 구매 확인 시 Apple Account로 청구됩니다. 현재 기간 종료 최소 24시간 전에 취소하지 않으면 자동 갱신되며 Apple은 종료 전 24시간 이내에 갱신 비용을 청구할 수 있습니다. Apple Account 구독 설정에서 관리 또는 취소하고 앱에서 대상 구매를 복원할 수 있습니다. 환불은 Apple 정책에 따릅니다."
+      ],
+      [
+        "가용성 및 변경",
+        "안정적인 제공을 위해 노력하지만 중단이나 오류가 없거나 모든 콘텐츠와 호환됨을 보장하지 않습니다. Apple 프레임워크, 권한, 로컬 모델 또는 운영체제 변경이 기능에 영향을 줄 수 있습니다. 유지보수, 보안, 규정 준수 또는 개선을 위해 기능을 변경하거나 중단할 수 있습니다."
+      ],
+      [
+        "지식재산권 및 종료",
+        "앱, 인터페이스, 아이콘 및 관련 자료는 지식재산권법의 보호를 받습니다. 본 약관은 소유권을 이전하지 않습니다. 중대한 위반 시 법이 허용하는 범위에서 라이선스를 종료할 수 있으며 완료된 구매에는 Apple의 구매 및 환불 규칙이 계속 적용됩니다."
+      ],
+      [
+        "책임 및 소비자 권리",
+        "법이 허용하는 최대 범위에서 앱은 있는 그대로 제공되며 인식 또는 번역 결과로 인한 간접적, 부수적 또는 결과적 손해에 대해 책임지지 않습니다. 법적으로 배제할 수 없는 소비자 권리나 책임은 제한되지 않습니다."
+      ],
+      [
+        "Apple 약관",
+        "App Store를 통한 앱의 취득 및 구매에는 Apple Media Services 약관과 Apple 표준 최종 사용자 사용권 계약도 적용됩니다. 결제, 구독 관리 및 환불은 Apple이 처리합니다."
+      ],
+      [
+        "변경 및 문의",
+        "본 약관을 업데이트하는 경우 이 페이지에 개정일을 표시합니다. 업데이트 후 계속 사용하면 개정 약관에 동의하는 것입니다. 문의는 lch0810@outlook.com 으로 보내 주세요."
+      ]
+    ]
+  },
+  "fr": {
+    "appName": "Traduction en direct",
+    "title": "Conditions d’utilisation",
+    "updated": "Mise à jour : 13 octobre 2026",
+    "intro": "En téléchargeant, en accédant à ou en utilisant Traduction en direct, vous acceptez les présentes Conditions. Elles s’appliquent avec les conditions App Store pertinentes et le contrat de licence utilisateur final standard d’Apple.",
+    "privacy": "Politique de confidentialité",
+    "support": "Assistance",
+    "sections": [
+      [
+        "Le service",
+        "Traduction en direct utilise ReplayKit pour capturer l’audio d’une diffusion système que vous lancez, puis les fonctions Apple de reconnaissance vocale, de traduction et d’image dans l’image pour créer des sous-titres en direct. La disponibilité dépend de l’appareil, du système, des langues, des modèles installés et des services Apple."
+      ],
+      [
+        "Licence et utilisation responsable",
+        "Nous vous accordons une licence limitée, personnelle, non transférable et révocable pour utiliser l’app sur les appareils Apple que vous possédez ou contrôlez. Vous devez avoir le droit de traiter l’audio et le contenu concernés. Toute utilisation pour un enregistrement illégal, une atteinte au droit d’auteur ou à la vie privée, un contournement technique ou une violation des règles de services tiers est interdite."
+      ],
+      [
+        "Exactitude",
+        "La reconnaissance vocale et la traduction automatique peuvent être incomplètes, retardées ou erronées. Ne les utilisez pas comme seule base d’une décision médicale, juridique, financière, de sécurité ou professionnelle et vérifiez toute information importante."
+      ],
+      [
+        "Utilisation gratuite, abonnements et achats",
+        "L’app peut proposer le quota gratuit limité affiché dans son interface. Les abonnements sont renouvelés automatiquement ; l’accès à vie est un achat unique. Le prix, la devise et la période affichés par l’App Store lors de l’achat prévalent. Votre compte Apple est débité à la confirmation. L’abonnement est renouvelé sauf annulation au moins 24 heures avant la fin de la période, et Apple peut facturer le renouvellement dans les 24 heures précédant cette fin. Gérez ou annulez dans les réglages d’abonnement de votre compte Apple et restaurez les achats admissibles dans l’app. Apple traite les remboursements selon ses règles."
+      ],
+      [
+        "Disponibilité et modifications",
+        "Nous cherchons à maintenir l’app disponible sans garantir un fonctionnement continu, sans erreur ni compatible avec tout contenu. Les changements des frameworks Apple, autorisations, modèles locaux ou systèmes peuvent affecter les fonctions. Nous pouvons modifier ou arrêter des fonctions pour maintenance, sécurité, conformité ou amélioration."
+      ],
+      [
+        "Propriété intellectuelle et résiliation",
+        "L’app, son interface, son icône et ses éléments sont protégés par les lois sur la propriété intellectuelle. Aucun droit de propriété n’est transféré. En cas de violation substantielle, nous pouvons résilier la licence dans la mesure permise par la loi ; les achats restent soumis aux règles d’Apple."
+      ],
+      [
+        "Responsabilité et droits des consommateurs",
+        "Dans la mesure permise par la loi, l’app est fournie en l’état et nous ne répondons pas des pertes indirectes, accessoires ou consécutives aux résultats de reconnaissance ou de traduction. Les droits légaux des consommateurs qui ne peuvent être exclus restent inchangés."
+      ],
+      [
+        "Conditions Apple",
+        "L’obtention et l’achat via l’App Store sont aussi soumis aux Conditions Apple Media Services et au contrat de licence utilisateur final standard d’Apple. Apple gère les paiements, abonnements et remboursements App Store."
+      ],
+      [
+        "Modifications et contact",
+        "Nous pouvons actualiser ces Conditions et afficherons la date de révision ici. La poursuite de l’utilisation vaut acceptation des Conditions révisées. Contact : lch0810@outlook.com."
+      ]
+    ]
+  },
+  "de": {
+    "appName": "Live-Übersetzung",
+    "title": "Nutzungsbedingungen",
+    "updated": "Aktualisiert: 13. Oktober 2026",
+    "intro": "Durch Herunterladen, Aufrufen oder Verwenden von Live-Übersetzung stimmen Sie diesen Nutzungsbedingungen zu. Sie gelten zusammen mit den einschlägigen App-Store-Bedingungen und Apples Standard-Endbenutzer-Lizenzvertrag.",
+    "privacy": "Datenschutzrichtlinie",
+    "support": "Support",
+    "sections": [
+      [
+        "Der Dienst",
+        "Live-Übersetzung erfasst mit ReplayKit den Ton einer von Ihnen gestarteten Systemübertragung und erstellt mithilfe von Apples Spracherkennungs-, Übersetzungs- und Bild-in-Bild-Funktionen Live-Untertitel. Die Verfügbarkeit hängt von Gerät, Betriebssystem, Sprachen, installierten Modellen und Apple-Systemdiensten ab."
+      ],
+      [
+        "Lizenz und verantwortliche Nutzung",
+        "Sie erhalten eine beschränkte, persönliche, nicht übertragbare und widerrufliche Lizenz zur Nutzung auf Apple-Geräten, die Ihnen gehören oder von Ihnen kontrolliert werden. Sie müssen zur Verarbeitung der Audiodaten und Inhalte berechtigt sein. Unzulässig sind rechtswidrige Aufnahmen, Verletzungen von Urheberrecht oder Privatsphäre, die Umgehung technischer Schutzmaßnahmen und Verstöße gegen Regeln von Drittanbietern."
+      ],
+      [
+        "Genauigkeit",
+        "Spracherkennung und maschinelle Übersetzung können unvollständig, verzögert oder falsch sein. Ergebnisse dürfen nicht die alleinige Grundlage medizinischer, rechtlicher, finanzieller, sicherheitsbezogener oder sonstiger fachlicher Entscheidungen sein. Prüfen Sie wichtige Informationen selbst."
+      ],
+      [
+        "Kostenlose Nutzung, Abos und Käufe",
+        "Die App kann das in der Oberfläche angezeigte begrenzte kostenlose Kontingent anbieten. Abonnements verlängern sich automatisch; lebenslanger Zugriff ist ein einmaliger Kauf. Maßgeblich sind Preis, Währung und Abrechnungszeitraum im App Store beim Kauf. Bei Bestätigung wird Ihr Apple Account belastet. Das Abo verlängert sich, sofern es nicht mindestens 24 Stunden vor Periodenende gekündigt wird; Apple kann die Verlängerung innerhalb der letzten 24 Stunden berechnen. Verwalten oder kündigen Sie im Apple-Account und stellen Sie berechtigte Käufe in der App wieder her. Erstattungen bearbeitet Apple nach seinen Regeln."
+      ],
+      [
+        "Verfügbarkeit und Änderungen",
+        "Wir bemühen uns um Verfügbarkeit, garantieren jedoch keinen unterbrechungs- oder fehlerfreien Betrieb und keine Kompatibilität mit allen Inhalten. Änderungen an Apple-Frameworks, Berechtigungen, lokalen Modellen oder Betriebssystemen können Funktionen beeinflussen. Funktionen können für Wartung, Sicherheit, Compliance oder Verbesserung geändert oder eingestellt werden."
+      ],
+      [
+        "Geistiges Eigentum und Beendigung",
+        "App, Oberfläche, Symbol und Materialien sind durch Immaterialgüterrechte geschützt. Eigentum wird nicht übertragen. Bei wesentlichem Verstoß können wir die Lizenz im gesetzlich zulässigen Umfang beenden; Käufe unterliegen weiterhin den Apple-Regeln."
+      ],
+      [
+        "Haftung und Verbraucherrechte",
+        "Soweit gesetzlich zulässig, wird die App wie besehen bereitgestellt; für indirekte, zufällige oder Folgeschäden aus Erkennungs- oder Übersetzungsergebnissen haften wir nicht. Unabdingbare Verbraucherrechte oder Haftung werden nicht ausgeschlossen."
+      ],
+      [
+        "Apple-Bedingungen",
+        "Bezug und Kauf über den App Store unterliegen auch den Apple Media Services-Bedingungen und Apples Standard-Endbenutzer-Lizenzvertrag. Apple verwaltet Zahlungen, Abonnements und Erstattungen."
+      ],
+      [
+        "Änderungen und Kontakt",
+        "Wir können diese Bedingungen aktualisieren und zeigen das Änderungsdatum auf dieser Seite. Die weitere Nutzung gilt als Zustimmung. Fragen senden Sie an lch0810@outlook.com."
+      ]
+    ]
+  },
+  "es": {
+    "appName": "Traducción en vivo",
+    "title": "Términos de uso",
+    "updated": "Actualizado: 13 de octubre de 2026",
+    "intro": "Al descargar, acceder o usar Traducción en vivo, aceptas estos Términos. Se aplican junto con los términos correspondientes de Apple App Store y el contrato de licencia estándar para usuarios finales de Apple.",
+    "privacy": "Política de privacidad",
+    "support": "Soporte",
+    "sections": [
+      [
+        "El servicio",
+        "Traducción en vivo usa ReplayKit para capturar el audio de una retransmisión del sistema que tú inicias y las funciones de Apple de reconocimiento de voz, traducción e imagen dentro de imagen para crear subtítulos en directo. La disponibilidad depende del dispositivo, sistema, idiomas, modelos instalados y servicios de Apple."
+      ],
+      [
+        "Licencia y uso responsable",
+        "Te concedemos una licencia limitada, personal, intransferible y revocable para usar la app en dispositivos Apple que poseas o controles. Debes tener derecho a procesar el audio y contenido. No la uses para grabaciones ilícitas, infringir derechos de autor o privacidad, eludir protecciones técnicas ni vulnerar reglas de servicios de terceros."
+      ],
+      [
+        "Exactitud",
+        "El reconocimiento de voz y la traducción automática pueden ser incompletos, tardíos o incorrectos. No uses los resultados como única base para decisiones médicas, legales, financieras, de seguridad u otras decisiones profesionales. Verifica la información importante."
+      ],
+      [
+        "Uso gratuito, suscripciones y compras",
+        "La app puede ofrecer el límite gratuito mostrado en su interfaz. Las suscripciones se renuevan automáticamente; el acceso de por vida es una compra única. Prevalecen el precio, moneda y periodo mostrados por App Store al comprar. Se cobra a tu cuenta de Apple al confirmar. La suscripción se renueva salvo cancelación al menos 24 horas antes del final del periodo, y Apple puede cobrar la renovación dentro de las 24 horas anteriores. Administra o cancela en los ajustes de suscripciones de tu cuenta Apple y restaura compras válidas en la app. Apple tramita reembolsos según sus políticas."
+      ],
+      [
+        "Disponibilidad y cambios",
+        "Intentamos mantener la app disponible, pero no garantizamos un funcionamiento ininterrumpido, sin errores o compatible con todo contenido. Los cambios en frameworks, permisos, modelos locales o sistemas de Apple pueden afectar funciones. Podemos modificar o retirar funciones por mantenimiento, seguridad, cumplimiento o mejora."
+      ],
+      [
+        "Propiedad intelectual y terminación",
+        "La app, interfaz, icono y materiales están protegidos por las leyes de propiedad intelectual. No se transfiere propiedad. Ante un incumplimiento sustancial podemos terminar la licencia cuando la ley lo permita; las compras siguen sujetas a las reglas de Apple."
+      ],
+      [
+        "Responsabilidad y derechos del consumidor",
+        "Hasta donde permita la ley, la app se ofrece tal cual y no respondemos por pérdidas indirectas, incidentales o consecuentes derivadas de los resultados de reconocimiento o traducción. No se excluyen derechos del consumidor ni responsabilidades que legalmente no puedan excluirse."
+      ],
+      [
+        "Términos de Apple",
+        "La obtención y compra mediante App Store también está sujeta a los Términos de Apple Media Services y al contrato de licencia estándar para usuarios finales de Apple. Apple gestiona pagos, suscripciones y reembolsos."
+      ],
+      [
+        "Cambios y contacto",
+        "Podemos actualizar estos Términos y mostraremos aquí la fecha de revisión. Seguir usando la app actualizada implica aceptar los Términos revisados. Contacto: lch0810@outlook.com."
+      ]
+    ]
+  },
+  "it": {
+    "appName": "Traduzione live",
+    "updated": "Ultimo aggiornamento: 13 ottobre 2026",
+    "support": "Assistenza",
+    "title": "Condizioni d’uso",
+    "privacy": "Informativa sulla privacy",
+    "intro": "Scaricando, accedendo o usando Traduzione live, accetti queste Condizioni d’uso. Si applicano insieme alle condizioni pertinenti dell’Apple App Store e al contratto di licenza standard per l’utente finale di Apple.",
+    "sections": [
+      [
+        "Il servizio",
+        "Traduzione live usa ReplayKit per acquisire l’audio di una trasmissione di sistema avviata da te, quindi le funzioni Apple di riconoscimento vocale, traduzione e Picture in Picture per creare sottotitoli in tempo reale. La disponibilità dipende dal dispositivo, dal sistema operativo, dalle lingue, dai modelli installati e dai servizi di sistema Apple."
+      ],
+      [
+        "Licenza e uso responsabile",
+        "Ti concediamo una licenza limitata, personale, non trasferibile e revocabile per usare l’app sui dispositivi Apple che possiedi o controlli. Devi avere il diritto di elaborare l’audio e i contenuti interessati. Non usare l’app per registrazioni illecite, violazioni del diritto d’autore o della privacy, aggiramento di protezioni tecniche o attività contrarie alle regole dei servizi di terzi."
+      ],
+      [
+        "Accuratezza del riconoscimento e della traduzione",
+        "Il riconoscimento vocale e la traduzione automatica possono essere incompleti, in ritardo o errati. Non usare i risultati come unica base per decisioni mediche, legali, finanziarie, di sicurezza o altre decisioni professionali. Verifica autonomamente le informazioni importanti."
+      ],
+      [
+        "Utilizzo gratuito, abbonamenti e acquisti",
+        "L’app può offrire la quota gratuita limitata indicata nell’interfaccia. Gli abbonamenti si rinnovano automaticamente; l’accesso a vita è un acquisto unico. Fanno fede il prezzo, la valuta e il periodo di fatturazione mostrati dall’App Store al momento dell’acquisto. Il tuo account Apple viene addebitato alla conferma. L’abbonamento si rinnova automaticamente salvo annullamento almeno 24 ore prima della fine del periodo in corso; Apple può addebitare il rinnovo nelle 24 ore precedenti. Puoi gestire o annullare l’abbonamento nelle impostazioni degli abbonamenti del tuo account Apple e ripristinare gli acquisti idonei nell’app. Apple gestisce i rimborsi secondo le proprie regole."
+      ],
+      [
+        "Disponibilità e modifiche",
+        "Ci impegniamo a mantenere disponibile l’app, senza garantire un funzionamento continuo, privo di errori o compatibile con ogni contenuto. Modifiche ai framework Apple, ai permessi, ai modelli locali o al sistema operativo possono influire sulle funzioni. Possiamo aggiornare, modificare o interrompere funzioni per manutenzione, sicurezza, conformità o miglioramento del prodotto."
+      ],
+      [
+        "Proprietà intellettuale e cessazione",
+        "L’app, l’interfaccia, l’icona e i materiali correlati sono protetti dalle leggi applicabili sulla proprietà intellettuale. Queste Condizioni non trasferiscono alcun diritto di proprietà. In caso di violazione sostanziale, possiamo revocare la licenza nei limiti consentiti dalla legge; gli acquisti già effettuati restano soggetti alle regole Apple su acquisti e rimborsi."
+      ],
+      [
+        "Responsabilità e diritti dei consumatori",
+        "Nei limiti massimi consentiti dalla legge, l’app è fornita così com’è e non rispondiamo di perdite indirette, incidentali o conseguenti ai risultati di riconoscimento o traduzione. Queste Condizioni non escludono né limitano diritti dei consumatori o responsabilità che per legge non possono essere esclusi."
+      ],
+      [
+        "Condizioni Apple",
+        "L’acquisizione e l’acquisto dell’app tramite App Store sono soggetti anche alle condizioni Apple Media Services e al contratto di licenza standard per l’utente finale di Apple. Apple gestisce pagamenti, abbonamenti e rimborsi dell’App Store."
+      ],
+      [
+        "Modifiche e contatti",
+        "Possiamo aggiornare queste Condizioni e ne indicheremo qui la data di revisione. Continuando a usare l’app aggiornata, accetti le Condizioni riviste. Per domande, scrivi a lch0810@outlook.com."
+      ]
+    ]
+  },
+  "pt": {
+    "appName": "Tradução ao vivo",
+    "updated": "Última atualização: 13 de outubro de 2026",
+    "support": "Suporte",
+    "title": "Termos de uso",
+    "privacy": "Política de privacidade",
+    "intro": "Ao baixar, acessar ou usar Tradução ao vivo, você concorda com estes Termos de Uso. Eles se aplicam em conjunto com os termos pertinentes da Apple App Store e o Contrato de Licença de Usuário Final Padrão da Apple.",
+    "sections": [
+      [
+        "O serviço",
+        "Tradução ao vivo usa o ReplayKit para capturar o áudio de uma transmissão do sistema iniciada por você e os recursos de reconhecimento de fala, tradução e Picture in Picture da Apple para criar legendas em tempo real. A disponibilidade depende do dispositivo, sistema operacional, idiomas, modelos instalados e serviços do sistema da Apple."
+      ],
+      [
+        "Licença e uso responsável",
+        "Concedemos uma licença limitada, pessoal, intransferível e revogável para usar o app em dispositivos Apple que você possua ou controle. Você deve ter o direito de processar o áudio e o conteúdo envolvidos. Não use o app para gravações ilegais, violações de direitos autorais ou de privacidade, contorno de proteções técnicas ou condutas que violem regras de serviços de terceiros."
+      ],
+      [
+        "Precisão do reconhecimento e da tradução",
+        "O reconhecimento de fala e a tradução automática podem apresentar omissões, atrasos ou erros. Não use os resultados como única base para decisões médicas, jurídicas, financeiras, de segurança ou outras decisões profissionais. Verifique informações importantes por conta própria."
+      ],
+      [
+        "Uso gratuito, assinaturas e compras",
+        "O app pode oferecer o limite de uso gratuito exibido na interface. As assinaturas são renovadas automaticamente; o acesso vitalício é uma compra única. Valem o preço, a moeda e o período de cobrança exibidos na App Store no momento da compra. A cobrança é feita na sua Conta Apple após a confirmação. A assinatura é renovada automaticamente, a menos que seja cancelada pelo menos 24 horas antes do fim do período atual; a Apple pode cobrar a renovação nas 24 horas anteriores. Gerencie ou cancele a assinatura nos ajustes de assinaturas da sua Conta Apple e restaure compras elegíveis no app. A Apple processa reembolsos conforme suas políticas."
+      ],
+      [
+        "Disponibilidade e alterações",
+        "Buscamos manter o app disponível, mas não garantimos funcionamento contínuo, sem erros ou compatível com todo tipo de conteúdo. Alterações nos frameworks da Apple, permissões, modelos locais ou sistemas operacionais podem afetar recursos. Podemos atualizar, alterar ou descontinuar recursos por manutenção, segurança, conformidade ou melhoria do produto."
+      ],
+      [
+        "Propriedade intelectual e encerramento",
+        "O app, a interface, o ícone e os materiais relacionados são protegidos pelas leis de propriedade intelectual aplicáveis. Estes Termos não transferem direitos de propriedade. Em caso de violação relevante, podemos encerrar sua licença nos limites permitidos por lei; as compras concluídas continuam sujeitas às regras de compra e reembolso da Apple."
+      ],
+      [
+        "Responsabilidade e direitos do consumidor",
+        "Na máxima extensão permitida por lei, o app é fornecido no estado em que se encontra, e não nos responsabilizamos por perdas indiretas, incidentais ou consequentes dos resultados de reconhecimento ou tradução. Estes Termos não excluem nem limitam direitos do consumidor ou responsabilidades que não possam ser excluídos por lei."
+      ],
+      [
+        "Termos da Apple",
+        "A obtenção e a compra do app pela App Store também estão sujeitas aos Termos dos Serviços de Mídia da Apple e ao Contrato de Licença de Usuário Final Padrão da Apple. A Apple administra pagamentos, assinaturas e reembolsos da App Store."
+      ],
+      [
+        "Alterações e contato",
+        "Podemos atualizar estes Termos e indicaremos a data de revisão nesta página. Continuar usando o app atualizado significa aceitar os Termos revisados. Envie dúvidas para lch0810@outlook.com."
+      ]
+    ]
+  },
+  "ar": {
+    "appName": "ترجمة مباشرة",
+    "updated": "آخر تحديث: 13 أكتوبر 2026",
+    "support": "الدعم",
+    "title": "شروط الاستخدام",
+    "privacy": "سياسة الخصوصية",
+    "intro": "بتنزيل ترجمة مباشرة أو الوصول إليه أو استخدامه، فإنك توافق على شروط الاستخدام هذه. تسري هذه الشروط إلى جانب شروط Apple App Store المعمول بها واتفاقية ترخيص المستخدم النهائي القياسية من Apple.",
+    "sections": [
+      [
+        "الخدمة",
+        "يستخدم ترجمة مباشرة إطار ReplayKit لالتقاط صوت بث النظام الذي تبدأه أنت، ثم يستخدم إمكانات التعرف على الكلام والترجمة وصورة داخل صورة التي توفرها Apple لإنشاء ترجمة نصية مباشرة. يعتمد توفر الخدمة على جهازك ونظام التشغيل واللغات والنماذج المثبتة وخدمات نظام Apple."
+      ],
+      [
+        "الترخيص والاستخدام المسؤول",
+        "نمنحك ترخيصًا محدودًا وشخصيًا وغير قابل للتحويل وقابلًا للإلغاء لاستخدام التطبيق على أجهزة Apple التي تملكها أو تتحكم بها. يجب أن يكون لديك الحق في معالجة الصوت والمحتوى المعنيين. لا تستخدم التطبيق للتسجيل غير القانوني أو انتهاك حقوق النشر أو الخصوصية أو تجاوز وسائل الحماية التقنية أو مخالفة قواعد خدمات الجهات الخارجية."
+      ],
+      [
+        "دقة التعرف على الكلام والترجمة",
+        "قد تكون نتائج التعرف على الكلام والترجمة الآلية ناقصة أو متأخرة أو غير صحيحة. لا تعتمد عليها وحدها لاتخاذ قرارات طبية أو قانونية أو مالية أو متعلقة بالسلامة أو قرارات مهنية أخرى. تحقّق من المعلومات المهمة بصورة مستقلة."
+      ],
+      [
+        "الاستخدام المجاني والاشتراكات والمشتريات",
+        "قد يتيح التطبيق حصة استخدام مجانية محدودة كما تظهر في واجهته. تتجدد الاشتراكات تلقائيًا، أما الوصول مدى الحياة فهو عملية شراء لمرة واحدة. يُعتمد السعر والعملة وفترة الفوترة المعروضة في App Store عند الشراء. تُخصم الرسوم من حساب Apple عند تأكيد الشراء. يتجدد الاشتراك تلقائيًا ما لم يُلغَ قبل نهاية الفترة الحالية بما لا يقل عن 24 ساعة، وقد تخصم Apple رسوم التجديد خلال الساعات الـ24 السابقة لنهايتها. يمكنك إدارة الاشتراك أو إلغاؤه في إعدادات اشتراكات حساب Apple واستعادة المشتريات المؤهلة داخل التطبيق. تتولى Apple معالجة المبالغ المستردة وفق سياساتها."
+      ],
+      [
+        "التوفر والتغييرات",
+        "نسعى إلى إبقاء التطبيق متاحًا، لكننا لا نضمن تشغيلًا بلا انقطاع أو أخطاء أو توافقًا مع كل أنواع المحتوى. قد تؤثر تغييرات أطر Apple أو الأذونات أو النماذج المحلية أو أنظمة التشغيل في الميزات. يجوز لنا تحديث الميزات أو تغييرها أو إيقافها لأغراض الصيانة أو الأمان أو الامتثال أو تحسين المنتج."
+      ],
+      [
+        "الملكية الفكرية وإنهاء الترخيص",
+        "يحمي القانون المعمول به التطبيق وواجهته وأيقونته والمواد المرتبطة به بموجب حقوق الملكية الفكرية. لا تنقل هذه الشروط أي ملكية. إذا ارتكبت مخالفة جوهرية لهذه الشروط، فيجوز لنا إنهاء ترخيصك بالقدر الذي يسمح به القانون؛ وتظل المشتريات المكتملة خاضعة لقواعد Apple الخاصة بالشراء واسترداد الأموال."
+      ],
+      [
+        "المسؤولية وحقوق المستهلك",
+        "إلى أقصى حد يسمح به القانون، يُقدَّم التطبيق كما هو، ولا نتحمل المسؤولية عن الخسائر غير المباشرة أو العرضية أو التبعية الناتجة عن مخرجات التعرف على الكلام أو الترجمة. لا تستبعد هذه الشروط أو تحدّ من حقوق المستهلك أو المسؤوليات التي لا يجوز قانونًا استبعادها."
+      ],
+      [
+        "شروط Apple",
+        "يخضع الحصول على التطبيق وشراؤه عبر App Store أيضًا لشروط Apple Media Services واتفاقية ترخيص المستخدم النهائي القياسية من Apple. تدير Apple مدفوعات App Store والاشتراكات والمبالغ المستردة."
+      ],
+      [
+        "التغييرات والتواصل",
+        "يجوز لنا تحديث هذه الشروط، وسنعرض تاريخ المراجعة في هذه الصفحة. يعني استمرار استخدام التطبيق المحدَّث قبولك للشروط المعدَّلة. يمكنك إرسال الأسئلة إلى lch0810@outlook.com."
+      ]
+    ]
+  },
+  "vi": {
+    "appName": "Dịch trực tiếp",
+    "updated": "Cập nhật: 13 tháng 10, 2026",
+    "support": "Hỗ trợ",
+    "title": "Điều khoản sử dụng",
+    "privacy": "Chính sách quyền riêng tư",
+    "intro": "Khi tải xuống, truy cập hoặc sử dụng Dịch trực tiếp, bạn đồng ý với các Điều khoản sử dụng này. Các điều khoản này áp dụng cùng với những điều khoản liên quan của Apple App Store và Thỏa thuận cấp phép người dùng cuối tiêu chuẩn của Apple.",
+    "sections": [
+      [
+        "Dịch vụ",
+        "Dịch trực tiếp sử dụng ReplayKit để thu âm thanh từ phiên phát sóng hệ thống do bạn chủ động bắt đầu, sau đó sử dụng các tính năng nhận dạng giọng nói, dịch và Hình trong hình của Apple để tạo phụ đề trực tiếp. Khả năng sử dụng phụ thuộc vào thiết bị, hệ điều hành, ngôn ngữ, mô hình đã cài đặt và dịch vụ hệ thống của Apple."
+      ],
+      [
+        "Giấy phép và sử dụng có trách nhiệm",
+        "Chúng tôi cấp cho bạn giấy phép có giới hạn, mang tính cá nhân, không thể chuyển nhượng và có thể thu hồi để sử dụng ứng dụng trên các thiết bị Apple mà bạn sở hữu hoặc kiểm soát. Bạn phải có quyền xử lý âm thanh và nội dung liên quan. Không sử dụng ứng dụng để ghi âm trái pháp luật, xâm phạm bản quyền hoặc quyền riêng tư, vượt qua biện pháp bảo vệ kỹ thuật hoặc vi phạm quy tắc của dịch vụ bên thứ ba."
+      ],
+      [
+        "Độ chính xác của nhận dạng và bản dịch",
+        "Nhận dạng giọng nói và dịch máy có thể bị thiếu, chậm hoặc sai. Không dùng kết quả làm cơ sở duy nhất cho các quyết định y tế, pháp lý, tài chính, an toàn hoặc chuyên môn khác. Hãy tự kiểm chứng những thông tin quan trọng."
+      ],
+      [
+        "Hạn mức miễn phí, đăng ký và mua hàng",
+        "Ứng dụng có thể cung cấp hạn mức sử dụng miễn phí được hiển thị trong giao diện. Các gói đăng ký tự động gia hạn; quyền truy cập trọn đời là giao dịch mua một lần. Giá, loại tiền và kỳ thanh toán hiển thị trên App Store tại thời điểm mua được áp dụng. Tài khoản Apple của bạn sẽ bị tính phí khi xác nhận mua. Gói đăng ký tự động gia hạn trừ khi bạn hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc; Apple có thể tính phí gia hạn trong vòng 24 giờ trước thời điểm đó. Bạn có thể quản lý hoặc hủy trong phần cài đặt đăng ký của Tài khoản Apple và khôi phục các giao dịch đủ điều kiện trong ứng dụng. Apple xử lý hoàn tiền theo chính sách của mình."
+      ],
+      [
+        "Khả năng sử dụng và thay đổi",
+        "Chúng tôi cố gắng duy trì ứng dụng nhưng không đảm bảo hoạt động liên tục, không có lỗi hoặc tương thích với mọi loại nội dung. Thay đổi đối với framework của Apple, quyền truy cập, mô hình cục bộ hoặc hệ điều hành có thể ảnh hưởng đến tính năng. Chúng tôi có thể cập nhật, thay đổi hoặc ngừng tính năng để bảo trì, bảo mật, tuân thủ quy định hoặc cải tiến sản phẩm."
+      ],
+      [
+        "Sở hữu trí tuệ và chấm dứt",
+        "Ứng dụng, giao diện, biểu tượng và tài liệu liên quan được bảo vệ bởi pháp luật sở hữu trí tuệ hiện hành. Các Điều khoản này không chuyển giao quyền sở hữu. Nếu bạn vi phạm nghiêm trọng, chúng tôi có thể chấm dứt giấy phép trong phạm vi pháp luật cho phép; các giao dịch đã hoàn tất vẫn chịu sự điều chỉnh của quy tắc mua hàng và hoàn tiền của Apple."
+      ],
+      [
+        "Trách nhiệm và quyền của người tiêu dùng",
+        "Trong phạm vi tối đa pháp luật cho phép, ứng dụng được cung cấp theo hiện trạng và chúng tôi không chịu trách nhiệm về tổn thất gián tiếp, ngẫu nhiên hoặc hệ quả do kết quả nhận dạng hoặc dịch gây ra. Các Điều khoản này không loại trừ hoặc hạn chế những quyền của người tiêu dùng hay trách nhiệm không thể bị loại trừ theo luật."
+      ],
+      [
+        "Điều khoản của Apple",
+        "Việc tải và mua ứng dụng qua App Store còn chịu sự điều chỉnh của Điều khoản dịch vụ truyền thông Apple và Thỏa thuận cấp phép người dùng cuối tiêu chuẩn của Apple. Apple quản lý thanh toán, đăng ký và hoàn tiền trên App Store."
+      ],
+      [
+        "Thay đổi và liên hệ",
+        "Chúng tôi có thể cập nhật các Điều khoản này và sẽ ghi ngày sửa đổi trên trang này. Tiếp tục sử dụng ứng dụng đã cập nhật nghĩa là bạn chấp nhận các điều khoản sửa đổi. Vui lòng gửi câu hỏi đến lch0810@outlook.com."
+      ]
+    ]
+  },
+  "ru": {
+    "appName": "Синхронный перевод",
+    "updated": "Обновлено: 13 октября 2026 г.",
+    "support": "Поддержка",
+    "title": "Условия использования",
+    "privacy": "Политика конфиденциальности",
+    "intro": "Загружая, открывая или используя Синхронный перевод, вы соглашаетесь с настоящими Условиями использования. Они применяются вместе с соответствующими условиями Apple App Store и стандартным лицензионным соглашением Apple с конечным пользователем.",
+    "sections": [
+      [
+        "Сервис",
+        "Синхронный перевод использует ReplayKit для захвата звука системной трансляции, которую запускаете вы, а затем функции распознавания речи, перевода и «Картинки в картинке» от Apple для создания субтитров в реальном времени. Доступность зависит от устройства, операционной системы, языков, установленных моделей и системных служб Apple."
+      ],
+      [
+        "Лицензия и ответственное использование",
+        "Мы предоставляем ограниченную, личную, непередаваемую и отзывную лицензию на использование приложения на устройствах Apple, которыми вы владеете или управляете. Вы должны иметь право обрабатывать соответствующие звук и материалы. Не используйте приложение для незаконной записи, нарушения авторских прав или неприкосновенности частной жизни, обхода технической защиты или действий, нарушающих правила сторонних сервисов."
+      ],
+      [
+        "Точность распознавания и перевода",
+        "Распознавание речи и машинный перевод могут быть неполными, запаздывать или содержать ошибки. Не полагайтесь на результаты как на единственное основание для медицинских, юридических, финансовых, связанных с безопасностью или иных профессиональных решений. Самостоятельно проверяйте важную информацию."
+      ],
+      [
+        "Бесплатное использование, подписки и покупки",
+        "Приложение может предоставлять ограниченный бесплатный объём использования, указанный в интерфейсе. Подписки продлеваются автоматически; бессрочный доступ приобретается разовым платежом. Применяются цена, валюта и расчётный период, отображаемые в App Store при покупке. Средства списываются с вашего Аккаунта Apple при подтверждении. Подписка продлевается автоматически, если не отменить её как минимум за 24 часа до окончания текущего периода; Apple может списать плату за продление в течение 24 часов до его окончания. Управляйте подпиской или отменяйте её в настройках подписок Аккаунта Apple и восстанавливайте соответствующие покупки в приложении. Возвраты обрабатывает Apple по своим правилам."
+      ],
+      [
+        "Доступность и изменения",
+        "Мы стремимся поддерживать доступность приложения, но не гарантируем непрерывную, безошибочную работу или совместимость со всеми видами материалов. Изменения фреймворков Apple, разрешений, локальных моделей или операционных систем могут повлиять на функции. Мы можем обновлять, менять или прекращать функции для обслуживания, обеспечения безопасности, соблюдения требований или улучшения продукта."
+      ],
+      [
+        "Интеллектуальная собственность и прекращение лицензии",
+        "Приложение, интерфейс, значок и связанные материалы защищены применимым законодательством об интеллектуальной собственности. Настоящие Условия не передают право собственности. При существенном нарушении Условий мы можем прекратить вашу лицензию в пределах, разрешённых законом; совершённые покупки остаются под действием правил Apple о покупках и возвратах."
+      ],
+      [
+        "Ответственность и права потребителей",
+        "В максимально допустимых законом пределах приложение предоставляется «как есть», и мы не отвечаем за косвенные, случайные или последующие убытки, вызванные результатами распознавания или перевода. Настоящие Условия не исключают и не ограничивают права потребителей или ответственность, которые не могут быть исключены по закону."
+      ],
+      [
+        "Условия Apple",
+        "Получение и покупка приложения через App Store также регулируются Условиями Apple Media Services и стандартным лицензионным соглашением Apple с конечным пользователем. Apple управляет платежами, подписками и возвратами в App Store."
+      ],
+      [
+        "Изменения и связь",
+        "Мы можем обновлять настоящие Условия и указывать дату изменений на этой странице. Продолжая пользоваться обновлённым приложением, вы принимаете изменённые Условия. Вопросы можно направлять на lch0810@outlook.com."
+      ]
+    ]
+  },
+  "th": {
+    "appName": "แปลสด",
+    "updated": "อัปเดตล่าสุด: 13 ตุลาคม 2569",
+    "support": "การสนับสนุน",
+    "title": "ข้อกำหนดการใช้งาน",
+    "privacy": "นโยบายความเป็นส่วนตัว",
+    "intro": "การดาวน์โหลด เข้าถึง หรือใช้งาน แปลสด หมายความว่าคุณยอมรับข้อกำหนดการใช้งานนี้ ข้อกำหนดนี้ใช้ร่วมกับข้อกำหนดของ Apple App Store ที่เกี่ยวข้องและข้อตกลงอนุญาตให้ใช้สิทธิสำหรับผู้ใช้ปลายทางฉบับมาตรฐานของ Apple",
+    "sections": [
+      [
+        "บริการ",
+        "แปลสด ใช้ ReplayKit เพื่อจับเสียงจากการถ่ายทอดระบบที่คุณเป็นผู้เริ่ม จากนั้นใช้ความสามารถด้านการรู้จำเสียง การแปล และภาพซ้อนภาพของ Apple เพื่อสร้างคำบรรยายสด ความพร้อมใช้งานขึ้นอยู่กับอุปกรณ์ ระบบปฏิบัติการ ภาษา โมเดลที่ติดตั้ง และบริการระบบของ Apple"
+      ],
+      [
+        "สิทธิการใช้งานและความรับผิดชอบ",
+        "เราให้สิทธิการใช้งานแบบจำกัด เฉพาะบุคคล โอนให้ผู้อื่นไม่ได้ และเพิกถอนได้ เพื่อใช้แอปบนอุปกรณ์ Apple ที่คุณเป็นเจ้าของหรือควบคุม คุณต้องมีสิทธิในการประมวลผลเสียงและเนื้อหาที่เกี่ยวข้อง ห้ามใช้แอปเพื่อบันทึกเสียงโดยผิดกฎหมาย ละเมิดลิขสิทธิ์หรือความเป็นส่วนตัว หลีกเลี่ยงมาตรการป้องกันทางเทคนิค หรือกระทำการที่ขัดต่อกฎของบริการบุคคลที่สาม"
+      ],
+      [
+        "ความแม่นยำในการรู้จำและการแปล",
+        "การรู้จำเสียงและการแปลอัตโนมัติอาจไม่ครบถ้วน ล่าช้า หรือผิดพลาด ห้ามใช้ผลลัพธ์เป็นพื้นฐานเพียงอย่างเดียวในการตัดสินใจด้านการแพทย์ กฎหมาย การเงิน ความปลอดภัย หรือวิชาชีพอื่น ๆ โปรดตรวจสอบข้อมูลสำคัญด้วยตนเอง"
+      ],
+      [
+        "โควตาฟรี การสมัครสมาชิก และการซื้อ",
+        "แอปอาจให้โควตาการใช้งานฟรีแบบจำกัดตามที่แสดงในแอป การสมัครสมาชิกจะต่ออายุอัตโนมัติ ส่วนสิทธิใช้งานตลอดชีพเป็นการซื้อครั้งเดียว ราคา สกุลเงิน และรอบเรียกเก็บเงินให้ยึดตามที่ App Store แสดงขณะซื้อ บัญชี Apple ของคุณจะถูกเรียกเก็บเงินเมื่อยืนยันการซื้อ การสมัครสมาชิกจะต่ออายุอัตโนมัติหากไม่ยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน และ Apple อาจเรียกเก็บค่าต่ออายุภายใน 24 ชั่วโมงก่อนสิ้นสุดรอบนั้น คุณจัดการหรือยกเลิกได้ในการตั้งค่าการสมัครสมาชิกของบัญชี Apple และกู้คืนรายการซื้อที่เข้าเงื่อนไขได้ในแอป Apple เป็นผู้ดำเนินการคืนเงินตามนโยบายของตน"
+      ],
+      [
+        "ความพร้อมใช้งานและการเปลี่ยนแปลง",
+        "เราพยายามให้แอปพร้อมใช้งาน แต่ไม่รับประกันว่าจะทำงานต่อเนื่อง ปราศจากข้อผิดพลาด หรือเข้ากันได้กับเนื้อหาทุกประเภท การเปลี่ยนแปลงเฟรมเวิร์กของ Apple สิทธิอนุญาต โมเดลในเครื่อง หรือระบบปฏิบัติการอาจส่งผลต่อฟีเจอร์ เราอาจอัปเดต เปลี่ยนแปลง หรือยุติฟีเจอร์เพื่อบำรุงรักษา ความปลอดภัย การปฏิบัติตามข้อกำหนด หรือปรับปรุงผลิตภัณฑ์"
+      ],
+      [
+        "ทรัพย์สินทางปัญญาและการสิ้นสุดสิทธิ",
+        "แอป อินเทอร์เฟซ ไอคอน และเนื้อหาที่เกี่ยวข้องได้รับการคุ้มครองตามกฎหมายทรัพย์สินทางปัญญาที่ใช้บังคับ ข้อกำหนดนี้ไม่โอนกรรมสิทธิ์ใด ๆ หากคุณฝ่าฝืนข้อกำหนดอย่างมีนัยสำคัญ เราอาจยุติสิทธิการใช้งานของคุณในขอบเขตที่กฎหมายอนุญาต การซื้อที่เสร็จสมบูรณ์ยังคงอยู่ภายใต้กฎการซื้อและคืนเงินของ Apple"
+      ],
+      [
+        "ความรับผิดและสิทธิผู้บริโภค",
+        "ในขอบเขตสูงสุดที่กฎหมายอนุญาต แอปให้บริการตามสภาพ และเราไม่รับผิดชอบต่อความสูญเสียทางอ้อม โดยบังเอิญ หรือสืบเนื่องจากผลการรู้จำหรือการแปล ข้อกำหนดนี้ไม่ยกเว้นหรือจำกัดสิทธิผู้บริโภคหรือความรับผิดที่กฎหมายห้ามยกเว้น"
+      ],
+      [
+        "ข้อกำหนดของ Apple",
+        "การรับและซื้อแอปผ่าน App Store ยังอยู่ภายใต้ข้อกำหนด Apple Media Services และข้อตกลงอนุญาตให้ใช้สิทธิสำหรับผู้ใช้ปลายทางฉบับมาตรฐานของ Apple โดย Apple จัดการการชำระเงิน การสมัครสมาชิก และการคืนเงินของ App Store"
+      ],
+      [
+        "การเปลี่ยนแปลงและการติดต่อ",
+        "เราอาจปรับปรุงข้อกำหนดนี้และจะแสดงวันที่แก้ไขบนหน้านี้ การใช้แอปที่อัปเดตต่อไปหมายความว่าคุณยอมรับข้อกำหนดที่แก้ไขแล้ว หากมีคำถาม โปรดส่งอีเมลไปที่ lch0810@outlook.com"
+      ]
+    ]
+  },
+  "tr": {
+    "appName": "Canlı Çeviri",
+    "updated": "Son güncelleme: 13 Ekim 2026",
+    "support": "Destek",
+    "title": "Kullanım koşulları",
+    "privacy": "Gizlilik politikası",
+    "intro": "Canlı Çeviri uygulamasını indirerek, açarak veya kullanarak bu Kullanım Koşullarını kabul edersiniz. Bu koşullar, ilgili Apple App Store koşulları ve Apple’ın Standart Son Kullanıcı Lisans Sözleşmesi ile birlikte geçerlidir.",
+    "sections": [
+      [
+        "Hizmet",
+        "Canlı Çeviri, sizin başlattığınız sistem yayınının sesini ReplayKit ile yakalar; ardından canlı altyazılar oluşturmak için Apple’ın konuşma tanıma, çeviri ve Resim İçinde Resim özelliklerini kullanır. Kullanılabilirlik cihazınıza, işletim sistemine, dillere, yüklü modellere ve Apple sistem hizmetlerine bağlıdır."
+      ],
+      [
+        "Lisans ve sorumlu kullanım",
+        "Sahip olduğunuz veya kontrol ettiğiniz Apple cihazlarında uygulamayı kullanmanız için sınırlı, kişisel, devredilemez ve geri alınabilir bir lisans veriyoruz. İlgili sesi ve içeriği işleme hakkına sahip olmalısınız. Uygulamayı yasa dışı kayıt yapmak, telif hakkını veya mahremiyeti ihlal etmek, teknik korumaları aşmak ya da üçüncü taraf hizmet kurallarına aykırı davranmak için kullanmayın."
+      ],
+      [
+        "Tanıma ve çeviri doğruluğu",
+        "Konuşma tanıma ve makine çevirisi eksik, gecikmiş veya yanlış olabilir. Sonuçları tıbbi, hukuki, mali, güvenlikle ilgili veya diğer mesleki kararlar için tek dayanak olarak kullanmayın. Önemli bilgileri bağımsız olarak doğrulayın."
+      ],
+      [
+        "Ücretsiz kullanım, abonelikler ve satın alımlar",
+        "Uygulama, arayüzünde gösterilen sınırlı ücretsiz kullanım hakkını sunabilir. Abonelikler otomatik yenilenir; ömür boyu erişim tek seferlik satın alımdır. Satın alma sırasında App Store’da gösterilen fiyat, para birimi ve faturalandırma dönemi geçerlidir. Onay sırasında Apple Hesabınızdan ücret alınır. Mevcut dönem bitmeden en az 24 saat önce iptal edilmezse abonelik otomatik yenilenir; Apple, bitişten önceki 24 saat içinde yenileme ücretini alabilir. Aboneliği Apple Hesabınızın abonelik ayarlarında yönetebilir veya iptal edebilir, uygun satın alımları uygulamada geri yükleyebilirsiniz. İadeleri Apple kendi politikalarına göre işler."
+      ],
+      [
+        "Kullanılabilirlik ve değişiklikler",
+        "Uygulamayı kullanılabilir tutmayı amaçlıyoruz ancak kesintisiz, hatasız çalışma veya her içerik türüyle uyumluluk sözü vermiyoruz. Apple çerçeveleri, izinler, yerel modeller veya işletim sistemlerindeki değişiklikler özellikleri etkileyebilir. Bakım, güvenlik, mevzuata uyum veya ürün geliştirme için özellikleri güncelleyebilir, değiştirebilir veya sonlandırabiliriz."
+      ],
+      [
+        "Fikrî mülkiyet ve fesih",
+        "Uygulama, arayüz, simge ve ilgili materyaller yürürlükteki fikrî mülkiyet yasalarıyla korunur. Bu koşullar mülkiyet hakkı devretmez. Koşulları esaslı biçimde ihlal ederseniz, yasanın izin verdiği ölçüde lisansınızı sonlandırabiliriz; tamamlanan satın alımlar Apple’ın satın alma ve iade kurallarına tabi olmaya devam eder."
+      ],
+      [
+        "Sorumluluk ve tüketici hakları",
+        "Yasanın izin verdiği en geniş ölçüde, uygulama olduğu gibi sunulur ve tanıma veya çeviri çıktısından kaynaklanan dolaylı, arızi veya sonuç niteliğindeki kayıplardan sorumlu değiliz. Bu koşullar, yasal olarak hariç tutulamayacak tüketici haklarını veya sorumlulukları ortadan kaldırmaz ya da sınırlamaz."
+      ],
+      [
+        "Apple koşulları",
+        "Uygulamayı App Store üzerinden edinmek ve satın almak ayrıca Apple Media Services Koşullarına ve Apple’ın Standart Son Kullanıcı Lisans Sözleşmesine tabidir. App Store ödemelerini, abonelik yönetimini ve iadeleri Apple yürütür."
+      ],
+      [
+        "Değişiklikler ve iletişim",
+        "Bu koşulları güncelleyebiliriz; değişiklik tarihini bu sayfada göstereceğiz. Güncellenmiş uygulamayı kullanmaya devam etmeniz, değiştirilmiş koşulları kabul ettiğiniz anlamına gelir. Sorularınızı lch0810@outlook.com adresine gönderebilirsiniz."
+      ]
+    ]
+  },
+  "id": {
+    "appName": "Terjemahan Langsung",
+    "updated": "Terakhir diperbarui: 13 Oktober 2026",
+    "support": "Dukungan",
+    "title": "Ketentuan penggunaan",
+    "privacy": "Kebijakan privasi",
+    "intro": "Dengan mengunduh, mengakses, atau menggunakan Terjemahan Langsung, Anda menyetujui Ketentuan Penggunaan ini. Ketentuan ini berlaku bersama ketentuan Apple App Store yang relevan dan Perjanjian Lisensi Pengguna Akhir Standar Apple.",
+    "sections": [
+      [
+        "Layanan",
+        "Terjemahan Langsung menggunakan ReplayKit untuk menangkap audio dari siaran sistem yang Anda mulai, lalu menggunakan kemampuan pengenalan ucapan, terjemahan, dan Gambar dalam Gambar dari Apple untuk membuat subtitel langsung. Ketersediaan bergantung pada perangkat, sistem operasi, bahasa, model yang terpasang, dan layanan sistem Apple."
+      ],
+      [
+        "Lisensi dan penggunaan yang bertanggung jawab",
+        "Kami memberikan lisensi terbatas, pribadi, tidak dapat dialihkan, dan dapat dicabut untuk menggunakan aplikasi pada perangkat Apple yang Anda miliki atau kendalikan. Anda harus memiliki hak untuk memproses audio dan konten terkait. Jangan gunakan aplikasi untuk perekaman ilegal, pelanggaran hak cipta atau privasi, pengelakan perlindungan teknis, atau tindakan yang melanggar aturan layanan pihak ketiga."
+      ],
+      [
+        "Akurasi pengenalan dan terjemahan",
+        "Pengenalan ucapan dan terjemahan mesin dapat tidak lengkap, terlambat, atau salah. Jangan mengandalkan hasil sebagai satu-satunya dasar untuk keputusan medis, hukum, keuangan, keselamatan, atau keputusan profesional lainnya. Verifikasi informasi penting secara mandiri."
+      ],
+      [
+        "Penggunaan gratis, langganan, dan pembelian",
+        "Aplikasi dapat menyediakan kuota gratis terbatas yang ditampilkan di antarmuka. Langganan diperpanjang otomatis; akses seumur hidup merupakan pembelian satu kali. Harga, mata uang, dan periode penagihan yang ditampilkan App Store saat pembelian berlaku. Akun Apple Anda ditagih saat konfirmasi. Langganan diperpanjang otomatis kecuali dibatalkan setidaknya 24 jam sebelum periode saat ini berakhir; Apple dapat menagih perpanjangan dalam 24 jam sebelum akhir periode tersebut. Kelola atau batalkan di pengaturan langganan Akun Apple Anda dan pulihkan pembelian yang memenuhi syarat di aplikasi. Apple menangani pengembalian dana sesuai kebijakannya."
+      ],
+      [
+        "Ketersediaan dan perubahan",
+        "Kami berupaya menjaga aplikasi tetap tersedia, tetapi tidak menjamin pengoperasian tanpa gangguan, bebas kesalahan, atau kompatibel dengan semua jenis konten. Perubahan framework Apple, izin, model lokal, atau sistem operasi dapat memengaruhi fitur. Kami dapat memperbarui, mengubah, atau menghentikan fitur untuk pemeliharaan, keamanan, kepatuhan, atau peningkatan produk."
+      ],
+      [
+        "Kekayaan intelektual dan pengakhiran",
+        "Aplikasi, antarmuka, ikon, dan materi terkait dilindungi oleh hukum kekayaan intelektual yang berlaku. Ketentuan ini tidak mengalihkan kepemilikan apa pun. Jika Anda melakukan pelanggaran material terhadap Ketentuan ini, kami dapat mengakhiri lisensi Anda sejauh diizinkan hukum; pembelian yang telah selesai tetap tunduk pada aturan pembelian dan pengembalian dana Apple."
+      ],
+      [
+        "Tanggung jawab dan hak konsumen",
+        "Sejauh diizinkan hukum, aplikasi disediakan sebagaimana adanya, dan kami tidak bertanggung jawab atas kerugian tidak langsung, insidental, atau konsekuensial yang timbul dari hasil pengenalan atau terjemahan. Ketentuan ini tidak mengecualikan atau membatasi hak konsumen maupun tanggung jawab yang secara hukum tidak dapat dikecualikan."
+      ],
+      [
+        "Ketentuan Apple",
+        "Perolehan dan pembelian aplikasi melalui App Store juga tunduk pada Ketentuan Apple Media Services dan Perjanjian Lisensi Pengguna Akhir Standar Apple. Apple mengelola pembayaran, langganan, dan pengembalian dana App Store."
+      ],
+      [
+        "Perubahan dan kontak",
+        "Kami dapat memperbarui Ketentuan ini dan akan menampilkan tanggal revisi di halaman ini. Terus menggunakan aplikasi yang diperbarui berarti Anda menerima Ketentuan yang direvisi. Pertanyaan dapat dikirim ke lch0810@outlook.com."
+      ]
+    ]
+  },
+  "uk": {
+    "appName": "Синхронний переклад",
+    "updated": "Оновлено: 13 жовтня 2026 р.",
+    "support": "Підтримка",
+    "title": "Умови використання",
+    "privacy": "Політика конфіденційності",
+    "intro": "Завантажуючи, відкриваючи або використовуючи Синхронний переклад, ви погоджуєтеся з цими Умовами використання. Вони застосовуються разом із відповідними умовами Apple App Store та стандартною ліцензійною угодою Apple з кінцевим користувачем.",
+    "sections": [
+      [
+        "Сервіс",
+        "Синхронний переклад використовує ReplayKit для захоплення звуку системної трансляції, яку запускаєте ви, а потім функції розпізнавання мовлення, перекладу й «Картинки в картинці» від Apple для створення субтитрів у реальному часі. Доступність залежить від пристрою, операційної системи, мов, установлених моделей і системних служб Apple."
+      ],
+      [
+        "Ліцензія та відповідальне використання",
+        "Ми надаємо обмежену, особисту, непередавану та відкличну ліцензію на використання застосунку на пристроях Apple, якими ви володієте або керуєте. Ви повинні мати право обробляти відповідні звук і матеріали. Не використовуйте застосунок для незаконного запису, порушення авторських прав або приватності, обходу технічного захисту чи дій, що порушують правила сторонніх сервісів."
+      ],
+      [
+        "Точність розпізнавання та перекладу",
+        "Розпізнавання мовлення й машинний переклад можуть бути неповними, затримуватися або містити помилки. Не покладайтеся на результати як на єдину підставу для медичних, юридичних, фінансових, пов’язаних із безпекою чи інших професійних рішень. Самостійно перевіряйте важливу інформацію."
+      ],
+      [
+        "Безкоштовне використання, підписки та покупки",
+        "Застосунок може надавати обмежений безкоштовний обсяг використання, указаний в інтерфейсі. Підписки поновлюються автоматично; довічний доступ є одноразовою покупкою. Застосовуються ціна, валюта й розрахунковий період, показані в App Store під час покупки. Кошти списуються з вашого Облікового запису Apple після підтвердження. Підписка поновлюється автоматично, якщо її не скасувати щонайменше за 24 години до завершення поточного періоду; Apple може стягнути плату за поновлення протягом 24 годин до його завершення. Керуйте підпискою або скасовуйте її в налаштуваннях підписок Облікового запису Apple та відновлюйте відповідні покупки в застосунку. Apple обробляє повернення коштів за своїми правилами."
+      ],
+      [
+        "Доступність і зміни",
+        "Ми прагнемо підтримувати доступність застосунку, але не гарантуємо безперервної, безпомилкової роботи чи сумісності з усіма видами матеріалів. Зміни фреймворків Apple, дозволів, локальних моделей або операційних систем можуть впливати на функції. Ми можемо оновлювати, змінювати або припиняти функції для обслуговування, безпеки, дотримання вимог чи вдосконалення продукту."
+      ],
+      [
+        "Інтелектуальна власність і припинення ліцензії",
+        "Застосунок, інтерфейс, значок і пов’язані матеріали захищені чинним законодавством про інтелектуальну власність. Ці Умови не передають права власності. За істотного порушення Умов ми можемо припинити вашу ліцензію в межах, дозволених законом; завершені покупки залишаються під дією правил Apple щодо покупок і повернення коштів."
+      ],
+      [
+        "Відповідальність і права споживачів",
+        "У максимально дозволених законом межах застосунок надається «як є», і ми не відповідаємо за непрямі, випадкові чи наслідкові збитки, спричинені результатами розпізнавання або перекладу. Ці Умови не виключають і не обмежують права споживачів або відповідальність, які не можуть бути виключені за законом."
+      ],
+      [
+        "Умови Apple",
+        "Отримання та придбання застосунку через App Store також регулюються Умовами Apple Media Services та стандартною ліцензійною угодою Apple з кінцевим користувачем. Apple керує платежами, підписками й поверненням коштів в App Store."
+      ],
+      [
+        "Зміни та зв’язок",
+        "Ми можемо оновлювати ці Умови й указуватимемо дату змін на цій сторінці. Продовжуючи користуватися оновленим застосунком, ви приймаєте змінені Умови. Запитання можна надсилати на lch0810@outlook.com."
+      ]
+    ]
+  },
+  "pl": {
+    "appName": "Tłumaczenie na żywo",
+    "updated": "Ostatnia aktualizacja: 13 października 2026",
+    "support": "Pomoc",
+    "title": "Warunki użytkowania",
+    "privacy": "Polityka prywatności",
+    "intro": "Pobierając, otwierając lub używając Tłumaczenie na żywo, akceptujesz niniejsze Warunki użytkowania. Obowiązują one wraz z odpowiednimi warunkami Apple App Store i standardową umową licencyjną Apple z użytkownikiem końcowym.",
+    "sections": [
+      [
+        "Usługa",
+        "Tłumaczenie na żywo używa ReplayKit do przechwytywania dźwięku transmisji systemowej uruchomionej przez Ciebie, a następnie funkcji rozpoznawania mowy, tłumaczenia i obrazu w obrazie firmy Apple do tworzenia napisów na żywo. Dostępność zależy od urządzenia, systemu operacyjnego, języków, zainstalowanych modeli i usług systemowych Apple."
+      ],
+      [
+        "Licencja i odpowiedzialne użytkowanie",
+        "Udzielamy ograniczonej, osobistej, niezbywalnej i odwołalnej licencji na używanie aplikacji na urządzeniach Apple, które posiadasz lub kontrolujesz. Musisz mieć prawo do przetwarzania danego dźwięku i treści. Nie używaj aplikacji do nielegalnego nagrywania, naruszania praw autorskich lub prywatności, obchodzenia zabezpieczeń technicznych ani działań sprzecznych z zasadami usług podmiotów trzecich."
+      ],
+      [
+        "Dokładność rozpoznawania i tłumaczenia",
+        "Rozpoznawanie mowy i tłumaczenie maszynowe mogą być niepełne, opóźnione lub błędne. Nie opieraj wyłącznie na ich wynikach decyzji medycznych, prawnych, finansowych, związanych z bezpieczeństwem ani innych decyzji zawodowych. Samodzielnie weryfikuj ważne informacje."
+      ],
+      [
+        "Bezpłatny limit, subskrypcje i zakupy",
+        "Aplikacja może oferować ograniczony bezpłatny limit wskazany w interfejsie. Subskrypcje odnawiają się automatycznie, a dostęp dożywotni jest zakupem jednorazowym. Obowiązują cena, waluta i okres rozliczeniowy podane w App Store w chwili zakupu. Konto Apple jest obciążane po potwierdzeniu. Subskrypcja odnawia się automatycznie, jeśli nie zostanie anulowana co najmniej 24 godziny przed końcem bieżącego okresu; Apple może pobrać opłatę za odnowienie w ciągu 24 godzin przed jego końcem. Zarządzaj subskrypcją lub anuluj ją w ustawieniach subskrypcji Konta Apple i odtwarzaj kwalifikujące się zakupy w aplikacji. Apple rozpatruje zwroty zgodnie ze swoimi zasadami."
+      ],
+      [
+        "Dostępność i zmiany",
+        "Staramy się utrzymywać dostępność aplikacji, ale nie gwarantujemy działania bez przerw, bez błędów ani zgodności z każdym rodzajem treści. Zmiany frameworków Apple, uprawnień, lokalnych modeli lub systemów operacyjnych mogą wpływać na funkcje. Możemy aktualizować, zmieniać lub wycofywać funkcje w celu konserwacji, bezpieczeństwa, zgodności z przepisami lub ulepszania produktu."
+      ],
+      [
+        "Własność intelektualna i zakończenie licencji",
+        "Aplikacja, interfejs, ikona i powiązane materiały są chronione obowiązującymi przepisami o własności intelektualnej. Niniejsze Warunki nie przenoszą własności. W przypadku istotnego naruszenia Warunków możemy zakończyć Twoją licencję w zakresie dozwolonym prawem; dokonane zakupy nadal podlegają zasadom Apple dotyczącym zakupów i zwrotów."
+      ],
+      [
+        "Odpowiedzialność i prawa konsumenta",
+        "W maksymalnym zakresie dozwolonym prawem aplikacja jest dostarczana w stanie, w jakim się znajduje, i nie ponosimy odpowiedzialności za straty pośrednie, przypadkowe lub wynikowe związane z rezultatami rozpoznawania lub tłumaczenia. Warunki te nie wyłączają ani nie ograniczają praw konsumenta lub odpowiedzialności, których zgodnie z prawem nie można wyłączyć."
+      ],
+      [
+        "Warunki Apple",
+        "Uzyskanie i zakup aplikacji przez App Store podlegają również Warunkom korzystania z usług Apple Media oraz standardowej umowie licencyjnej Apple z użytkownikiem końcowym. Apple zarządza płatnościami, subskrypcjami i zwrotami w App Store."
+      ],
+      [
+        "Zmiany i kontakt",
+        "Możemy aktualizować te Warunki i podamy datę zmiany na tej stronie. Dalsze korzystanie ze zaktualizowanej aplikacji oznacza akceptację zmienionych Warunków. Pytania można kierować na lch0810@outlook.com."
+      ]
+    ]
+  },
+  "hi": {
+    "appName": "लाइव अनुवाद",
+    "updated": "अंतिम अपडेट: 13 अक्टूबर 2026",
+    "support": "सहायता",
+    "title": "उपयोग की शर्तें",
+    "privacy": "गोपनीयता नीति",
+    "intro": "लाइव अनुवाद को डाउनलोड करने, खोलने या इस्तेमाल करने पर आप इन उपयोग की शर्तों से सहमत होते हैं। ये शर्तें संबंधित Apple App Store की शर्तों और Apple के मानक अंतिम उपयोगकर्ता लाइसेंस समझौते के साथ लागू होती हैं।",
+    "sections": [
+      [
+        "सेवा",
+        "लाइव अनुवाद, आपके द्वारा शुरू किए गए सिस्टम प्रसारण का ऑडियो कैप्चर करने के लिए ReplayKit का उपयोग करता है। फिर Apple की वाक् पहचान, अनुवाद और पिक्चर इन पिक्चर सुविधाओं से लाइव उपशीर्षक बनाता है। उपलब्धता आपके डिवाइस, ऑपरेटिंग सिस्टम, भाषाओं, इंस्टॉल किए गए मॉडल और Apple की सिस्टम सेवाओं पर निर्भर करती है।"
+      ],
+      [
+        "लाइसेंस और ज़िम्मेदार उपयोग",
+        "हम आपको आपके स्वामित्व या नियंत्रण वाले Apple डिवाइस पर ऐप इस्तेमाल करने के लिए सीमित, व्यक्तिगत, अहस्तांतरणीय और वापस लिया जा सकने वाला लाइसेंस देते हैं। संबंधित ऑडियो और सामग्री को प्रोसेस करने का अधिकार आपके पास होना चाहिए। ऐप का इस्तेमाल गैरकानूनी रिकॉर्डिंग, कॉपीराइट या निजता के उल्लंघन, तकनीकी सुरक्षा को दरकिनार करने या तृतीय पक्ष सेवाओं के नियम तोड़ने के लिए न करें।"
+      ],
+      [
+        "पहचान और अनुवाद की सटीकता",
+        "वाक् पहचान और मशीन अनुवाद अधूरे, विलंबित या गलत हो सकते हैं। चिकित्सा, कानूनी, वित्तीय, सुरक्षा या अन्य पेशेवर निर्णयों के लिए केवल इन परिणामों पर निर्भर न रहें। महत्वपूर्ण जानकारी की स्वतंत्र रूप से पुष्टि करें।"
+      ],
+      [
+        "निःशुल्क उपयोग, सदस्यताएँ और खरीदारी",
+        "ऐप अपने इंटरफ़ेस में दिखाए अनुसार सीमित निःशुल्क उपयोग दे सकता है। सदस्यताएँ अपने आप नवीनीकृत होती हैं; आजीवन एक्सेस एक बार की खरीदारी है। खरीदते समय App Store में दिखाई गई कीमत, मुद्रा और बिलिंग अवधि लागू होती है। पुष्टि होने पर आपके Apple खाते से शुल्क लिया जाता है। वर्तमान अवधि समाप्त होने से कम से कम 24 घंटे पहले रद्द न करने पर सदस्यता अपने आप नवीनीकृत होती है; Apple अवधि समाप्त होने से पहले के 24 घंटों में नवीनीकरण शुल्क ले सकता है। आप अपने Apple खाते की सदस्यता सेटिंग में सदस्यता प्रबंधित या रद्द कर सकते हैं और ऐप में पात्र खरीदारी बहाल कर सकते हैं। रिफ़ंड Apple की नीतियों के अनुसार संसाधित होते हैं।"
+      ],
+      [
+        "उपलब्धता और बदलाव",
+        "हम ऐप उपलब्ध रखने का प्रयास करते हैं, लेकिन निर्बाध, त्रुटिरहित संचालन या हर प्रकार की सामग्री के साथ अनुकूलता का वादा नहीं करते। Apple फ़्रेमवर्क, अनुमतियों, स्थानीय मॉडल या ऑपरेटिंग सिस्टम में बदलाव सुविधाओं को प्रभावित कर सकते हैं। रखरखाव, सुरक्षा, नियमों के पालन या उत्पाद में सुधार के लिए हम सुविधाएँ अपडेट, बदल या बंद कर सकते हैं।"
+      ],
+      [
+        "बौद्धिक संपदा और लाइसेंस की समाप्ति",
+        "ऐप, इंटरफ़ेस, आइकन और संबंधित सामग्री लागू बौद्धिक संपदा कानूनों द्वारा संरक्षित हैं। ये शर्तें किसी स्वामित्व का हस्तांतरण नहीं करतीं। यदि आप इन शर्तों का गंभीर उल्लंघन करते हैं, तो कानून द्वारा अनुमत सीमा तक हम आपका लाइसेंस समाप्त कर सकते हैं; पूरी हो चुकी खरीदारी Apple के खरीदारी और रिफ़ंड नियमों के अधीन रहती है।"
+      ],
+      [
+        "दायित्व और उपभोक्ता अधिकार",
+        "कानून द्वारा अनुमत अधिकतम सीमा तक ऐप जैसा है वैसा उपलब्ध कराया जाता है, और पहचान या अनुवाद के परिणामों से होने वाली अप्रत्यक्ष, आकस्मिक या परिणामी हानि के लिए हम ज़िम्मेदार नहीं हैं। ये शर्तें उन उपभोक्ता अधिकारों या दायित्वों को बाहर नहीं करतीं या सीमित नहीं करतीं जिन्हें कानूनन बाहर नहीं किया जा सकता।"
+      ],
+      [
+        "Apple की शर्तें",
+        "App Store से ऐप प्राप्त करने और खरीदने पर Apple Media Services की शर्तें और Apple का मानक अंतिम उपयोगकर्ता लाइसेंस समझौता भी लागू होते हैं। Apple, App Store के भुगतान, सदस्यता प्रबंधन और रिफ़ंड संभालता है।"
+      ],
+      [
+        "बदलाव और संपर्क",
+        "हम इन शर्तों को अपडेट कर सकते हैं और इस पेज पर संशोधन की तारीख दिखाएँगे। अपडेट किए गए ऐप का उपयोग जारी रखने का अर्थ संशोधित शर्तों को स्वीकार करना है। सवाल lch0810@outlook.com पर भेजे जा सकते हैं।"
+      ]
+    ]
+  },
+  "nl": {
+    "appName": "Live vertalen",
+    "updated": "Laatst bijgewerkt: 13 oktober 2026",
+    "support": "Ondersteuning",
+    "title": "Gebruiksvoorwaarden",
+    "privacy": "Privacybeleid",
+    "intro": "Door Live vertalen te downloaden, te openen of te gebruiken, ga je akkoord met deze Gebruiksvoorwaarden. Ze gelden samen met de toepasselijke voorwaarden van de Apple App Store en de standaardlicentieovereenkomst voor eindgebruikers van Apple.",
+    "sections": [
+      [
+        "De dienst",
+        "Live vertalen gebruikt ReplayKit om audio vast te leggen van een systeemuitzending die jij start. Vervolgens maakt de app live ondertitels met de spraakherkenning, vertaling en beeld-in-beeldfuncties van Apple. De beschikbaarheid hangt af van je apparaat, besturingssysteem, talen, geïnstalleerde modellen en Apple-systeemdiensten."
+      ],
+      [
+        "Licentie en verantwoord gebruik",
+        "We verlenen je een beperkte, persoonlijke, niet-overdraagbare en herroepbare licentie om de app te gebruiken op Apple-apparaten die je bezit of beheert. Je moet het recht hebben om de betreffende audio en inhoud te verwerken. Gebruik de app niet voor onrechtmatige opnamen, schending van auteursrechten of privacy, het omzeilen van technische beveiligingen of gedrag dat regels van diensten van derden schendt."
+      ],
+      [
+        "Nauwkeurigheid van herkenning en vertaling",
+        "Spraakherkenning en automatische vertaling kunnen onvolledig, vertraagd of onjuist zijn. Gebruik de resultaten niet als enige basis voor medische, juridische, financiële, veiligheidsgerelateerde of andere professionele beslissingen. Controleer belangrijke informatie zelfstandig."
+      ],
+      [
+        "Gratis gebruik, abonnementen en aankopen",
+        "De app kan de beperkte gratis gebruiksruimte bieden die in de interface staat. Abonnementen worden automatisch verlengd; levenslange toegang is een eenmalige aankoop. De prijs, valuta en factureringsperiode die de App Store bij aankoop toont, zijn bepalend. Je Apple Account wordt bij bevestiging belast. Een abonnement wordt automatisch verlengd, tenzij je het ten minste 24 uur voor het einde van de huidige periode opzegt; Apple kan de verlenging in de 24 uur vóór dat einde in rekening brengen. Beheer of annuleer abonnementen in de abonnementsinstellingen van je Apple Account en herstel daarvoor in aanmerking komende aankopen in de app. Apple behandelt terugbetalingen volgens zijn beleid."
+      ],
+      [
+        "Beschikbaarheid en wijzigingen",
+        "We streven ernaar de app beschikbaar te houden, maar garanderen geen ononderbroken of foutloze werking of compatibiliteit met elk type inhoud. Wijzigingen in Apple-frameworks, toestemmingen, lokale modellen of besturingssystemen kunnen functies beïnvloeden. We kunnen functies bijwerken, wijzigen of beëindigen voor onderhoud, veiligheid, naleving van regels of productverbetering."
+      ],
+      [
+        "Intellectueel eigendom en beëindiging",
+        "De app, interface, het pictogram en bijbehorende materialen worden beschermd door toepasselijke wetten op intellectueel eigendom. Deze voorwaarden dragen geen eigendom over. Bij een wezenlijke schending kunnen we je licentie beëindigen voor zover wettelijk toegestaan; voltooide aankopen blijven onder de aankoop- en terugbetalingsregels van Apple vallen."
+      ],
+      [
+        "Aansprakelijkheid en consumentenrechten",
+        "Voor zover de wet dit toestaat, wordt de app geleverd zoals deze is en zijn we niet aansprakelijk voor indirecte, incidentele of gevolgschade door herkennings- of vertaalresultaten. Deze voorwaarden sluiten geen consumentenrechten of aansprakelijkheden uit en beperken deze niet als uitsluiting wettelijk niet is toegestaan."
+      ],
+      [
+        "Voorwaarden van Apple",
+        "Het verkrijgen en kopen van de app via de App Store valt ook onder de voorwaarden van Apple Media Services en de standaardlicentieovereenkomst voor eindgebruikers van Apple. Apple beheert App Store-betalingen, abonnementen en terugbetalingen."
+      ],
+      [
+        "Wijzigingen en contact",
+        "We kunnen deze voorwaarden bijwerken en tonen de wijzigingsdatum op deze pagina. Als je de bijgewerkte app blijft gebruiken, accepteer je de gewijzigde voorwaarden. Vragen kun je sturen naar lch0810@outlook.com."
+      ]
+    ]
+  }
+};
 
     const supported = Object.keys(terms);
     const select = document.getElementById("language");
-
+    function matchLanguage(value) {
+      if (!value || typeof value !== "string") return null;
+      const tag = value.replaceAll("_", "-");
+      const lower = tag.toLowerCase();
+      if (/^zh(?:-|$)/.test(lower)) return /(?:^|[-])(hant|tw|hk|mo)(?:[-]|$)/.test(lower) ? "zh-Hant" : "zh-Hans";
+      const base = lower.split("-")[0];
+      return supported.includes(base) ? base : null;
+    }
+    function storedLanguage() {
+      try { return localStorage.getItem("site-language"); } catch { return null; }
+    }
     function render(language) {
-      const documentTerms = terms[language] || terms.en;
+      language = matchLanguage(language) || "en";
+      const content = terms[language];
       document.documentElement.lang = language;
-      document.title = documentTerms.appName + " · " + documentTerms.title;
-      document.getElementById("app-name").textContent = documentTerms.appName;
-      document.getElementById("title").textContent = documentTerms.title;
-      document.getElementById("updated").textContent = documentTerms.updated;
-      document.getElementById("intro").textContent = documentTerms.intro;
-      document.getElementById("privacy").textContent = documentTerms.privacy;
-      document.getElementById("support").textContent = documentTerms.support;
-      document.getElementById("sections").replaceChildren(...documentTerms.sections.map(([title, body]) => {
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+      document.title = content.appName + " · " + content.title;
+      document.querySelector('meta[name="description"]').content = content.appName + " · " + content.title;
+      for (const id of ["app-name", "title", "updated", "intro", "support"]) {
+        document.getElementById(id).textContent = content[id === "app-name" ? "appName" : id];
+      }
+      const other = document.getElementById("privacy");
+      other.textContent = content.privacy;
+      other.href = "./index.html?lang=" + encodeURIComponent(language);
+      document.getElementById("sections").replaceChildren(...content.sections.map(([title, body]) => {
         const section = document.createElement("section");
         const heading = document.createElement("h2");
         const paragraph = document.createElement("p");
-        heading.textContent = title;
-        paragraph.textContent = body;
-        section.append(heading, paragraph);
-        return section;
+        heading.textContent = title; paragraph.textContent = body;
+        section.append(heading, paragraph); return section;
       }));
+      document.querySelectorAll('a[href^="mailto:"]').forEach(link => { link.dir = "ltr"; });
       select.value = language;
     }
-
     select.addEventListener("change", event => {
-      localStorage.setItem("site-language", event.target.value);
+      try { localStorage.setItem("site-language", event.target.value); } catch {}
+      const url = new URL(location.href);
+      url.searchParams.set("lang", event.target.value);
+      history.replaceState(null, "", url);
       render(event.target.value);
     });
-    const saved = localStorage.getItem("site-language");
-    render(supported.includes(saved) ? saved : "en");
+    const queryLanguage = matchLanguage(new URLSearchParams(location.search).get("lang"));
+    const savedLanguage = matchLanguage(storedLanguage());
+    const browserLanguages = navigator.languages || [navigator.language];
+    render(queryLanguage || savedLanguage || browserLanguages.map(matchLanguage).find(Boolean) || "en");
   </script>
 </body>
 </html>
